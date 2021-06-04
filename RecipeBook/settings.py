@@ -26,7 +26,7 @@ SECRET_KEY = 'a-b+@a87_gzmmupi)$#ppuzgorj&vzaji$!6*za11z3t!#k(gv'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['recipebook.ph']
 
 
 # Application definition
