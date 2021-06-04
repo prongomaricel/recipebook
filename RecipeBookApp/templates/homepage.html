@@ -1,0 +1,211 @@
+<html>
+<head>
+	<title>Recipe Book</title>
+	<link rel="stylesheet" href="/static/css/style.css">
+
+<script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style >
+
+  body::after {
+    content: "";
+    background: url(/static/images/hp.jpg);
+    opacity: 58%;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    z-index: -1; 
+    background-size: 100% 100%;
+    background-repeat: repeat-x;
+  }
+  
+  input[type=text], select {
+  width: 65%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+button[type=button] {
+  width: 20%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  margin-left: 7%;
+  margin-top: 1%;
+  border: none;
+  border-radius: 90px;
+  cursor: pointer;
+}
+
+button[type=button]:hover {
+  background-color: #45a049;
+}
+
+button[type=submit] {
+  width: 23%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  margin-top: 1%;
+  border: none;
+  border-radius: 90px;
+  cursor: pointer;
+  margin-bottom: 2%;
+}
+
+button[type=submit]:hover {
+  background-color: #45a049;
+}
+
+form {
+  width: 43%;
+  float: right;
+  background-color: ivory;
+  border-radius: 5%;
+  display: none;
+  margin-top: -30%;
+  margin-right:8%;
+  transition: .5s;
+  
+}
+
+
+
+</style>
+</head>
+<!--
+<style>
+
+
+header{
+  font-size: 35px;
+  font-weight: 600;
+  padding: 10px 0;
+}
+
+input[type=text], select {
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+</style>
+-->
+
+
+<body>
+
+	<nav>
+         <div class="logo" >
+            -- Recipe Book --
+         </div>
+         <label for="btn" class="icon">
+         <span class="fa fa-bars"></span>
+         </label>
+         <input type="checkbox" id="btn">
+         <ul>
+            <li>
+               <label for="btn-1" class="show">Home <i class="fas fa-caret-down" style="padding-left: 10px;"></i></label>
+               <a href="#" > Home</a>
+               <input type="checkbox" id="btn-1">
+               <ul>
+                  <li><a href="#" > <i class="fa fa-home" style="padding-right: 10px;"></i>Main Home</a></li>
+                  <li><a href="#"> <i class="fa fa-home" style="padding-right: 10px;"></i>Vege Home</a></li>
+               </ul>
+            </li>
+            
+            
+                   <li><a href="#" > About Us<i class="fa fa-question-circle" style="padding-left: 10px;"></i></a></li>
+               <li><a href="#">Contact</a></li>
+               </ul>
+              
+      </nav>
+
+
+
+      <h4>It is even better than <br>an expensive cookery book</h4>
+      <p>Let us Express your Signature Dish</p>
+
+
+<button type="button" id="formButton">+ Create</button>
+	<form id="form1" style="text-align: center; padding-top: 3%" method="POST" action="/RecipeBookApp/newlist_url">
+
+	<label>
+		Creator Name:
+	</label><br>
+
+	<input
+		type="text" 
+		id="fName" 
+		name="fName" 
+		placeholder="Please Enter Your Name"
+		required>
+
+	<br><br>
+
+	<label>
+		Gender:
+	</label><br>
+	<input 
+		type="text" 
+		id="fGender" 
+		name="fGender" 
+		placeholder="Please Enter Gender">
+
+	<br><br>
+
+	<label>
+		Email Address:
+	</label><br>
+	<input 
+		type="text" 
+		id="fEAddress" 
+		name="fEAddress" 
+		placeholder="Please Enter Email-Address" 
+		required>
+
+	<br><br>
+
+	<label>
+		Contact Number:
+	</label><br>
+	<input 
+		type="text" 
+		id="fContactNumber" 
+		name="fContactNumber" 
+		placeholder="Please Enter Contact Number">
+
+	<br><br>
+
+	
+
+	<button type="submit" id="Continue" value="Continue" name="Continue">Submit</button>
+
+	<br><br>
+
+	{% csrf_token %}
+
+	
+
+</form>
+
+<script>
+$(document).ready(function() {
+  $("#formButton").click(function() {
+    $("#form1").toggle();
+  });
+});
+</script>
+</body>
+</html>
+
+
