@@ -1,0 +1,293 @@
+<html>
+<head>
+    <title>Recipe Book</title>
+
+<!--    <script> 
+
+        var cnt = 3;
+        function addMoreIngredients() {
+            var ing = document.getElementById('Ingredients'),
+            clone = ing.cloneNode(true);
+            clone.id = "Ingredients"+cnt; clone.name = "Ingredients"+cnt;
+            document.body.appendChild(clone);
+            document.body.appendChild(document.createTextNode("   "));
+            document.body.appendChild(document.createElement("br"));
+            cnt += 1;
+        }
+    </script>
+-->
+
+<link rel="stylesheet" href="/static/css/style.css">
+<style>
+
+/*body{
+
+  background: url(/static/images/hp.jpg);
+  background-repeat: repeat-y;
+  background-size: 100% 100%;
+  position: absolute;
+  top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+        z-index: -1; 
+}*/
+
+.form {
+    padding-top: 5%;
+    padding-right: 7%;
+    padding-left: 8%;
+    width: 80%;
+    background-color: blue;
+    border-radius: 5%;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 2%}
+
+
+input[type=text], input[type=number],  input[type=button], select {
+  width: 50%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+button[type=button] {
+  width: 20%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  margin-left: 7%;
+  margin-top: 1%;
+  border: none;
+  border-radius: 90px;
+  cursor: pointer;
+}
+
+button[type=button]:hover {
+  background-color: #45a049;
+}
+
+button[type=submit] {
+  width: 20%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  margin-top: 1%;
+  border: none;
+  border-radius: 90px;
+  cursor: pointer;
+  margin-bottom: 2%;
+  text-align: center;
+}
+
+button[type=submit]:hover {
+  background-color: #45a049;
+}
+
+
+
+</style>
+
+</head>
+
+<script>
+
+    function saveEdits() {
+
+//get the editable element
+var editElem = document.getElementById("edit");
+
+//get the edited element content
+var userVersion = editElem.innerHTML;
+
+//save the content to local storage
+localStorage.userEdits = userVersion;
+
+//write a confirmation to the user
+document.getElementById("update").innerHTML="Edits saved!";
+
+}
+
+function checkEdits() {
+
+//find out if the user has previously saved edits
+if(localStorage.userEdits!=null)
+document.getElementById("edit").innerHTML = localStorage.userEdits;
+}
+
+
+</script>
+
+<body>
+
+ <nav>
+    <div class="logo" >-- Recipe Book --</div>
+    <label for="btn" class="icon"><span class="fa fa-bars"></span></label>
+    <input type="checkbox" id="btn">
+    <ul>
+      <li>
+        <label for="btn-1" class="show">Home<i class="fas fa-caret-down" style="padding-left: 10px;"></i></label>
+        <a href="/home" ><i class="fa fa-home" style="padding-right: 10px;"></i>Home</a></li>
+        <li><a href="/about" > About Us<i class="fa fa-question-circle" style="padding-left: 10px;"></i></a></li>
+        <li><a href="/contact">Contact</a></li></ul></nav>
+
+
+    <br>
+    <!-- <h1 style="padding-top: 2%;
+        padding-bottom: 2%; 
+        border: 3px dashed white;
+        text-align: center">-- Recipe Book --</h1> -->
+
+    <form class="form" 
+     method="POST" action="/RecipeBookApp/{{CreatorId.id}}/addDish">
+
+
+     <label style="text-align: center; font-size: 3vw;">
+        Name of Dish:
+    </label><br>
+    <div id="edit" contenteditable="true">Click Here to Enter your own signature dish</div>
+    <input type="button" value="save my edits" onclick="saveEdits()"/>
+    <div id="update"> - Edit the text and click to save for next time</div>
+    <body onload="checkEdits()">
+    <input 
+        type="text" 
+        id="nNameofDish" 
+        name="nNameofDish"
+        placeholder="Enter your own signature dish" >
+
+    <br><br>
+
+    <label>
+        Main Ingredient:
+    </label>
+    <input 
+        type="text" 
+        id="nMainIngredient" 
+        name="nMainIngredient"
+        placeholder="Enter the main ingerdients" >
+
+    <br><br>
+
+    <label>
+        Date:
+    </label>
+    <input 
+        type="text" 
+        id="nDate" 
+        name="nDate"
+        placeholder="Enter the date today" >
+
+    <br><br>
+
+    <label>
+        Difficulty:
+    </label>
+    <input 
+        type="text" 
+        id="nDifficulty" 
+        name="nDifficulty"
+        placeholder="Enter the Difficulty of Dish" >
+
+    <br><br>
+
+
+
+
+    <label>
+        Category:
+    </label>
+    <input 
+        type="text" 
+        id="nCategory" 
+        name="nCategory"
+        placeholder="Enter Category" >
+    
+<!--    <input type="button" style="color:powderblue" value="More..." onclick="addMoreIngredients()" >
+-->
+    <br><br>
+
+    <label>
+        Servings:
+    </label>
+    <input 
+        type="text" 
+        id="nServings" 
+        name="nServings"
+        placeholder="Enter the number of Servings" >
+
+    <br><br>
+
+    <label>
+        Quantity:
+    </label>
+    <input 
+        type="number"
+        min="1" 
+        max="5" 
+        id="nQuantity" 
+        name="nQuantity"
+        placeholder="Enter the Quantity" >
+
+<br><br>
+    <label>
+        Unit:
+    </label>
+    <input 
+        type="number" 
+        id="nUnit" 
+        name="nUnit"
+        placeholder="Unit Here" >
+<br><br>
+    <label>
+        Ingredients:
+    </label>
+    <input 
+        type="text" 
+        id="nIngredients" 
+        name="nIngredients"
+        placeholder="Enter the Ingredients" >
+<br><br>
+    <label>
+        Procedures:
+    </label>
+    <input 
+        type="text" 
+        id="nProcedures" 
+        name="nProcedures"
+        placeholder="Enter the Procedures" >
+
+
+<br><br>
+
+    <button 
+        type="submit" 
+        id="Create" 
+        value="Create" 
+        name="Create">Create</button>
+
+    {% csrf_token %}
+</form>
+
+
+<table  id="details"  >
+     
+  <tr>
+    <th>Ingredients</th>
+    <th>Procedures</th>
+
+  </tr>
+  {% for dish in CreatorId.dish_set.all %} 
+  <tr> 
+  <td>{{ dish.dNameofDish }}</td>
+    <td>{{ dish.rIngredients }}</td>
+    <td>{{ dish.rProcedures }} </td>
+  </tr>
+    {% endfor %}
+</table>
+
+</body>
+</html>

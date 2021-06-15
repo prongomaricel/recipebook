@@ -376,7 +376,23 @@ input[type=text], select {
   box-sizing: border-box;
 } */
 
+th {  
+  border: 3px dashed white;
+  padding: 10px;
+  text-align: center;
+}
 
+table {
+  border-collapse: collapse;
+  width: 100%;
+  padding-top: 2%
+
+}
+
+td {
+  padding: 10px;
+  text-align: left; 
+}
 
 
 h4{
@@ -397,14 +413,6 @@ p{
     padding-right: 30.20vw;
 }
 
-h1{
-    font-size: 1.6vw;
-    color: ivory;
-    /* font-family: 'Dancing Script', cursive; */
-    padding-top: 13%;
-      padding-left: 5%;
-      text-align: left;
-  }
 h3{
   font-size: 0.90vw;
   color: black;
@@ -420,19 +428,3 @@ h3{
   background-size: cover;
   height: 100vh;
 } */
-
-th {  
-  border: 3px dashed white;
-  padding: 10px;
-  text-align: center;
-}
-table {
-  font-family: arial, sans-serif;
-  margin-left: 25%;
-  margin-right: 25%
-}
-
-td{
-  text-align: center;
-  width:30%;
-}

@@ -8,6 +8,13 @@ def RecipeBook(request):
     return render(request, 'homepage.html',{'dishes' : dishes})
 
 
+def Contact(request):
+    return render(request, 'contact.html')
+
+def About(request):
+    return render(request, 'about.html')
+
+
 #   return render(request, 'homepage.html')
 
 def ViewList(request, cId):
@@ -18,15 +25,28 @@ def ViewList(request, cId):
 
 def NewList(request):
 #   newCreator = Creator.objects.create()
-    newCar = Creator.objects.create(crName=request.POST['fName'],crGender=request.POST['fGender'], crEAddress=request.POST['fEAddress'], crContactNumber=request.POST['fContactNumber'])
+    newCar = Creator.objects.create(crName=request.POST['fName'],crEAddress=request.POST['fEAddress'], crContactNumber=request.POST['fContactNumber'])
 #   Dish.objects.create(CreatorId=newCreator, crName=request.POST['fName'],)
-    return redirect(f'/RecipeBookApp/{newCar.id}/')
+    return redirect(f'/{newCar.id}/')
 
 
 def AddDish(request, cId):
     creatorId = Creator.objects.get(id=cId)
     Dish.objects.create(CreatorId=creatorId, dNameofDish=request.POST['nNameofDish'],dMainIngredient=request.POST['nMainIngredient'],dDifficulty=request.POST['nDifficulty'],dCategory=request.POST['nCategory'],dServings=request.POST['nServings'],)
-    return redirect(f'/RecipeBookApp/{creatorId.id}/')
+    return redirect(f'/{creatorId.id}/')
+
+def ViewRecipe(request, cId):
+    creatorId = Creator.objects.get(id=cId)
+#   dishes = Dish.objects.filter(CreatorId=creatorId)
+    return render(request, 'output.html', {'CreatorId':creatorId})
+
+
+def AddRecipe(request, cId):
+    creatorId = Creator.objects.get(id=cId)
+    Dish.objects.create(CreatorId=creatorId, dNameofDish=request.POST['nNameofDish'],dMainIngredient=request.POST['nMainIngredient'],dDifficulty=request.POST['nDifficulty'],dCategory=request.POST['nCategory'],dServings=request.POST['nServings'],)
+    return redirect(f'/{creatorId.id}/addDish')
+
+
 
 def dataManipulation(request):
     #Creating an entry

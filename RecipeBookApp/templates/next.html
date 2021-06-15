@@ -20,7 +20,7 @@
 <link rel="stylesheet" href="/static/css/style.css">
 <style>
 
-body{
+/*body{
 
   background: url(/static/images/hp.jpg);
   background-repeat: repeat-y;
@@ -31,9 +31,43 @@ body{
     bottom: 0;
     right: 0;
         z-index: -1; 
+}*/
+
+th {  
+  text-align: center;
 }
-		input[type=text], select {
-  width: 30%;
+
+
+
+table {
+	border: 3px dashed white;;
+  text-align: center;
+  border-collapse: collapse;
+  width: 85%;
+  padding-top: 2%
+
+  margin-right: 7%; margin-left: 7%
+
+}
+
+td {
+  text-align: left; 
+}
+
+.form {
+	padding-top: 5%;
+	padding-right: 6%;
+	padding-left: 6%;
+    width: 85%;
+    background-color: #6495ED;
+    border-radius: 5%;
+    margin-left: 7%;
+    margin-right: 10%;
+    margin-top: 2%}
+
+
+input[type=text], input[type=number], input[type=date], input[type=button],select {
+  width: 35%;
   padding: 12px 20px;
   margin: 8px 0;
   display: inline-block;
@@ -60,7 +94,7 @@ button[type=button]:hover {
 
 button[type=submit] {
   width: 20%;
-  background-color: #4CAF50;
+  background-color: powderblue;
   color: white;
   padding: 10px 20px;
   margin-top: 1%;
@@ -77,69 +111,52 @@ button[type=submit]:hover {
 
 
 
-
-th {  
-  border: 3px dashed white;
-  padding: 10px;
-  text-align: center;
-}
-
-table {
-  border-collapse: collapse;
-  width: 100%;
-  padding-top: 2%
-
-}
-
-
-
-td {
-  padding: 10px;
-  text-align: left; 
-}
 </style>
 
 </head>
 
-<body>
+<body style="background-color: powderblue">
 
-		<nav>
-         <div class="logo" >
-            -- Recipe Book --
-         </div>
-         <label for="btn" class="icon">
-         <span class="fa fa-bars"></span>
-         </label>
-         <input type="checkbox" id="btn">
-         <ul>
-            <li>
-               <label for="btn-1" class="show">Home <i class="fas fa-caret-down" style="padding-left: 10px;"></i></label>
-               <a href="#" > Home</a>
-               <input type="checkbox" id="btn-1">
-               <ul>
-                  <li><a href="#" > <i class="fa fa-home" style="padding-right: 10px;"></i>Main Home</a></li>
-                  <li><a href="#"> <i class="fa fa-home" style="padding-right: 10px;"></i>Vege Home</a></li>
-               </ul>
-            </li>
-            
-                   <li><a href="#" > About Us<i class="fa fa-question-circle" style="padding-left: 10px;"></i></a></li>
-               <li><a href="#">Contact</a></li>
-               </ul>
-              
-      </nav>
+ <nav>
+    <div class="logo" >-- Recipe Book --</div>
+    <label for="btn" class="icon"><span class="fa fa-bars"></span></label>
+    <input type="checkbox" id="btn">
+    <ul>
+      <li>
+        <label for="btn-1" class="show">Home<i class="fas fa-caret-down" style="padding-left: 10px;"></i></label>
+        <a href="/home" ><i class="fa fa-home" style="padding-right: 10px;"></i>Home</a></li>
+        <li><a href="/about" > About Us<i class="fa fa-question-circle" style="padding-left: 10px;"></i></a></li>
+        <li><a href="/contact">Contact</a></li></ul></nav>
 
-
-	<br>
 	<h1 style="padding-top: 2%;
 		padding-bottom: 2%; 
-		border: 3px dashed white;
-  		text-align: center">-- Recipe Book --</h1>
+  		text-align: center; color: #6495ED; text-align: center; font-size: 3.0vw;
+    font-family: 'Dancing Script', cursive;">-- {{CreatorId.crName|title}}'s Book --</h1> 
 
-	<form style="text-align: center; padding-top: 3%"
-	 method="POST" action="/RecipeBookApp/{{CreatorId.id}}/addDish">
+		<table >
+			<tr style="font-size: 17px">
+				
+				<td>Email Address:</td>
+				<td>Contact Number:</td>
+				<td>Your Recipe Book Link:</td>
+
+			</tr>
+			<tr style="color: red; font-size: 22px">
+				
+				<td>{{CreatorId.crEAddress}}</td>
+				<td>{{CreatorId.crContactNumber}}</td>
+				<td>recipebook.ph/{{CreatorId.id}}/</td>
+			</tr>
+		</table>
 
 
-	 <label>
+
+
+	<form class="form" 
+	 method="POST" action="/{{CreatorId.id}}/Recipe">
+
+
+	 <label style="text-align: center; font-size: 3vw;">
 		Name of Dish:
 	</label><br>
 	<input 
@@ -152,30 +169,20 @@ td {
 
 	<label>
 		Main Ingredient:
-	</label><br>
+	</label>
 	<input 
 		type="text" 
 		id="nMainIngredient" 
 		name="nMainIngredient"
 		placeholder="Enter the main ingerdients" >
 
-	<br><br>
 
-	<label>
-		Date:
-	</label><br>
-	<input 
-		type="text" 
-		id="nDate" 
-		name="nDate"
-		placeholder="Enter the date today" >
 
-	<br><br>
 
-	<label>
+	<label style="padding-left: 3%">
 		Difficulty:
-	</label><br>
-	<input 
+	</label>
+	<input
 		type="text" 
 		id="nDifficulty" 
 		name="nDifficulty"
@@ -188,8 +195,9 @@ td {
 
 	<label>
 		Category:
-	</label><br>
+	</label>
 	<input 
+		style="margin-left: 5.5%"
 		type="text" 
 		id="nCategory" 
 		name="nCategory"
@@ -197,24 +205,38 @@ td {
 	
 <!--	<input type="button" style="color:powderblue" value="More..." onclick="addMoreIngredients()" >
 -->
-	<br><br>
 
-	<label>
+	<label style="padding-left: 3%">
 		Servings:
-	</label><br>
+	</label>
 	<input 
-		type="text" 
+	style="margin-left: 0.7%"
+		type="number" 
 		id="nServings" 
 		name="nServings"
-		placeholder="Enter the number of Servings" >
+		placeholder="How many people" >
 
 	<br><br>
 
-	<label>
-		Quantity:
-	</label><br>
+		<label >
+		Date:
+	</label>
 	<input 
-		type="text" 
+	style="margin-left: 9.5%"
+		type="date" 
+		id="nDate" 
+		name="nDate"
+		placeholder="Enter the date today" >
+
+	<br><br>
+
+	<!-- <label>
+		Quantity:
+	</label>
+	<input 
+		type="number"
+		min="1" 
+		max="5" 
 		id="nQuantity" 
 		name="nQuantity"
 		placeholder="Enter the Quantity" >
@@ -222,16 +244,16 @@ td {
 <br><br>
 	<label>
 		Unit:
-	</label><br>
+	</label>
 	<input 
-		type="text" 
+		type="number" 
 		id="nUnit" 
 		name="nUnit"
 		placeholder="Unit Here" >
 <br><br>
 	<label>
 		Ingredients:
-	</label><br>
+	</label>
 	<input 
 		type="text" 
 		id="nIngredients" 
@@ -240,42 +262,53 @@ td {
 <br><br>
 	<label>
 		Procedures:
-	</label><br>
+	</label>
 	<input 
 		type="text" 
 		id="nProcedures" 
 		name="nProcedures"
 		placeholder="Enter the Procedures" >
-
+ -->
 
 <br><br>
 
 	<button 
+		style="color: #6495ED" 
 		type="submit" 
-		id="Create" 
+		id="Create"
 		value="Create" 
 		name="Create">Create</button>
 
 	{% csrf_token %}
 </form>
 
-<!--
-<table  id="details"  >
+
+<table  id="details" style="margin-top: 3%" >
 	 
   <tr>
-    <th>Ingredients</th>
-    <th>Procedures</th>
+    <th style="width: 52%">Dish Name</th>
+    <th>Main Ingre</th>
+    <th>Difficulties</th>
+    <th>Category</th>
+    <th>Servings</th>
+    <th style="width: 52%">Date Created</th>
+    <th style="width: 52%">Update/Delete</th>
 
   </tr>
-  {% for dish in recipe.dish_set.all %} 
+  {% for dish in CreatorId.dish_set.all %} 
   <tr> 
-    <td>{{ dish.rIngredients }}</td>
-    <td>{{ dish.rProcedures }} </td>
+  <td><a href="#" >{{ dish.dNameofDish }}</a></td>
+    <td>{{ dish.dServings }}</td>
   </tr>
   	{% endfor %}
 </table>
--->
 
+	
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+    $('#nDate').val(new Date().toJSON().slice(0,10));
+
+
+</script>
 </body>
 </html>
-

@@ -47,7 +47,7 @@ class ViewTest(TestCase):
 
 	def test_listview_uses_listpage(self):
 		newCreator = Creator.objects.create()
-		response =self.client.get(f'/RecipeBookApp/{newCreator.id}/')
+		response =self.client.get(f'/{newCreator.id}/')
 		self.assertTemplateUsed(response, 'next.html')
 
 
@@ -55,7 +55,7 @@ class ViewTest(TestCase):
 		creatorList1 = Creator.objects.create()
 		creatorList2 = Creator.objects.create()
 		passList = Creator.objects.create()
-		response = self.client.get(f'/RecipeBookApp/{passList.id}/')
+		response = self.client.get(f'/{passList.id}/')
 		self.assertEqual(response.context['CreatorId'], passList)
 
 
@@ -63,31 +63,31 @@ class ViewTest(TestCase):
 class CreateListTest(TestCase):
 
 #	def test_save_POST_request(self):
-#		self.client.post('/RecipeBookApp/newlist_url', data={'Ingredients': 'New entry'})
+#		self.client.post('/newlist_url', data={'Ingredients': 'New entry'})
 #		self.assertEqual(Dish.objects.count(),1)
 #		newDish = Dish.objects.first()
 #		self.assertEqual(newDish.dNameofDish, 'New entry')
 
 	def test_save_POST_request_2(self):
-		self.client.post('/RecipeBookApp/newlist_url', data={'fName': 'New creator', 'fGender': 'New creator gender', 'fEAddress': 'New email address', 'fContactNumber': 'New creator number'})
+		self.client.post('/newlist_url', data={'fName': 'New creator', 'fGender': 'New creator gender', 'fEAddress': 'New email address', 'fContactNumber': 'New creator number'})
 		self.assertEqual(Creator.objects.count(), 1)
 		newCar = Creator.objects.first()
 		self.assertEqual(newCar.crName, 'New creator')
-		self.assertEqual(newCar.crGender, 'New creator gender')
+		self.assertEqual(newCar.crEAddress, 'New email address')
 
 
 	def test_redirect_POST_2(self):
-		response = self.client.post('/RecipeBookApp/newlist_url', data={'fName': 'New creator', 'fGender': 'New creator gender', 'fEAddress': 'New email address', 'fContactNumber': 'New creator number'})
+		response = self.client.post('/newlist_url', data={'fName': 'New creator', 'fGender': 'New creator gender', 'fEAddress': 'New email address', 'fContactNumber': 'New creator number'})
 		newList = Creator.objects.first()
-		self.assertRedirects(response, f'/RecipeBookApp/{newList.id}/')
+		self.assertRedirects(response, f'/{newList.id}/')
 
 
 
 
 #	def test_redirect_POST(self):
-#		response = self.client.post('/RecipeBookApp/newlist_url', data={'Ingredients': 'New entry'})
+#		response = self.client.post('/newlist_url', data={'Ingredients': 'New entry'})
 #		newList = Creator.objects.first()
-#		self.assertRedirects(response, f'/RecipeBookApp/{newList.id}/')
+#		self.assertRedirects(response, f'/{newList.id}/')
 
 class AddDishTest(TestCase):
 
@@ -95,7 +95,7 @@ class AddDishTest(TestCase):
 		CreatorList1 = Creator.objects.create()
 		CreatorList2 = Creator.objects.create()
 		existingList = Creator.objects.create()
-		self.client.post(f'/RecipeBookApp/{existingList.id}/addDish', data={'nNameofDish':'New Dish for existing list','nMainIngredient':'New Dish for existing list','nDifficulty':'New Dish for existing list','nCategory':'New Dish for existing list','nServings':'New Dish for existing list',})#'Ingredients':'New Dish for existing list', 'Procedures':'New Dish existing list'})
+		self.client.post(f'/{existingList.id}/addDish', data={'nNameofDish':'New Dish for existing list','nMainIngredient':'New Dish for existing list','nDifficulty':'New Dish for existing list','nCategory':'New Dish for existing list','nServings':'New Dish for existing list',})#'Ingredients':'New Dish for existing list', 'Procedures':'New Dish existing list'})
 		self.assertEqual(Dish.objects.count(),1)
 		newDish = Dish.objects.first()
 		self.assertEqual(newDish.dNameofDish, 'New Dish for existing list')
@@ -106,5 +106,5 @@ class AddDishTest(TestCase):
 		CreatorList2 = Creator.objects.create()
 		CreatorList3 = Creator.objects.create()
 		existingList = Creator.objects.create()
-		response = self.client.post(f'/RecipeBookApp/{existingList.id}/addDish', data={'nNameofDish':'New Dish for existing list','nMainIngredient':'New Dish for existing list','nDifficulty':'New Dish for existing list','nCategory':'New Dish for existing list','nServings':'New Dish for existing list',})#'Ingredients':'New Dish for existing list', 'Procedures':'New Dish existing list'})
-		self.assertRedirects(response, f'/RecipeBookApp/{existingList.id}/')
+		response = self.client.post(f'/{existingList.id}/addDish', data={'nNameofDish':'New Dish for existing list','nMainIngredient':'New Dish for existing list','nDifficulty':'New Dish for existing list','nCategory':'New Dish for existing list','nServings':'New Dish for existing list',})#'Ingredients':'New Dish for existing list', 'Procedures':'New Dish existing list'})
+		self.assertRedirects(response, f'/{existingList.id}/')
