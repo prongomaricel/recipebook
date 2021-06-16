@@ -9,7 +9,7 @@ urlpatterns = [
 
     url(r'^contact$', views.Contact, name='Contact'),
     url(r'^about$', views.About, name='About'),
-    url(r'^home$', views.RecipeBook, name='Home'),
+    url(r'^home$', views.RecipeBook, name='RecipeBook'),
 
 
     url(r'^(\d+)/addDish$', views.AddDish, name='addDish'),
@@ -17,4 +17,16 @@ urlpatterns = [
     url(r'^(\d+)/Recipe$', views.ViewRecipe, name='ViewRecipe'),
 
     url(r'^(\d+)/addDish/addRecipe$', views.AddRecipe, name='AddRecipe'),
+
+
+
+    url(r'^(\d+)/Recipe1$', views.ViewRecipe1, name='ViewRecipe1'),
+
+    url(r'^(\d+)/profile$', views.Profile, name='Profile'),
+
+
+
+    url(r'^(\d+)/addDish/addRecipe1$', views.AddRecipe1, name='AddRecipe1'),
+
+    url('admin/', admin.site.urls),
 ]

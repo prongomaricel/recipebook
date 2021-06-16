@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
-from RecipeBookApp.models import Dish, Creator
+from RecipeBookApp.models import Dish, Creator, Recipe
 
 
 def RecipeBook(request):
@@ -14,6 +14,10 @@ def Contact(request):
 def About(request):
     return render(request, 'about.html')
 
+def Profile(request, cId):
+    creatorId =Creator.objects.get(id=cId)
+#   dishes = Dish.objects.filter(CreatorId=creatorId)
+    return render(request, 'profile.html', {'CreatorId':creatorId})
 
 #   return render(request, 'homepage.html')
 
@@ -25,7 +29,7 @@ def ViewList(request, cId):
 
 def NewList(request):
 #   newCreator = Creator.objects.create()
-    newCar = Creator.objects.create(crName=request.POST['fName'],crEAddress=request.POST['fEAddress'], crContactNumber=request.POST['fContactNumber'])
+    newCar = Creator.objects.create(crName=request.POST['fName'],crGender=request.POST['gender'],crEAddress=request.POST['fEAddress'], crContactNumber=request.POST['fContactNumber'])
 #   Dish.objects.create(CreatorId=newCreator, crName=request.POST['fName'],)
     return redirect(f'/{newCar.id}/')
 
@@ -38,10 +42,23 @@ def AddDish(request, cId):
 def ViewRecipe(request, cId):
     creatorId = Creator.objects.get(id=cId)
 #   dishes = Dish.objects.filter(CreatorId=creatorId)
-    return render(request, 'output.html', {'CreatorId':creatorId})
+    return render(request, 'show.html', {'CreatorId':creatorId})
 
 
 def AddRecipe(request, cId):
+    creatorId = Creator.objects.get(id=cId)
+    Dish.objects.create(CreatorId=creatorId, dNameofDish=request.POST['nNameofDish'],dMainIngredient=request.POST['nMainIngredient'],dDifficulty=request.POST['nDifficulty'],dCategory=request.POST['nCategory'],dServings=request.POST['nServings'],)
+    return redirect(f'/{creatorId.id}/Recipe')
+
+
+
+def ViewRecipe1(request, cId):
+    creatorId = Creator.objects.get(id=cId)
+#   dishes = Dish.objects.filter(CreatorId=creatorId)
+    return render(request, 'output.html', {'CreatorId':creatorId})
+
+
+def AddRecipe1(request, cId):
     creatorId = Creator.objects.get(id=cId)
     Dish.objects.create(CreatorId=creatorId, dNameofDish=request.POST['nNameofDish'],dMainIngredient=request.POST['nMainIngredient'],dDifficulty=request.POST['nDifficulty'],dCategory=request.POST['nCategory'],dServings=request.POST['nServings'],)
     return redirect(f'/{creatorId.id}/addDish')

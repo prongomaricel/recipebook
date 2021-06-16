@@ -145,7 +145,7 @@ button[type=submit]:hover {
   		text-align: center; color: #6495ED; text-align: center; font-size: 3.0vw;
     font-family: 'Dancing Script', cursive;">-- {{CreatorId.crName|title}}'s Book --</h1> 
 
-		<table style="padding-left: 1%">
+<!-- 		<table style="padding-left: 1%">
 			<tr style="font-size: 17px;padding-left: 5%;">
 				
 				<td style="padding-left: 2%;">Email Address:</td>
@@ -155,185 +155,39 @@ button[type=submit]:hover {
 			</tr>
 			<tr style="color: red; font-size: 22px;padding-left: 5%;margin-left:10%">
 				
-				<td style="padding-left: 2%;"><a href="/{{CreatorId.id}}/profile">{{CreatorId.crEAddress}}</a></td>
+				<td style="padding-left: 2%;">{{CreatorId.crEAddress}}</td>
 				<td style="padding-left: 10%;">{{CreatorId.crGender}}{{model.choices}}</td>
 				<td style="padding-left: 2%;">recipebook.ph/{{CreatorId.id}}/</td>
 			</tr>
-		</table>
+		</table> -->
+
+<h1 style="color: black; text-align: center;margin-top: -15% ; ">Creator Name</h1>
+
+
+<h1 style="padding-top: 10%;
+		padding-bottom: 2%; 
+  		text-align: center; color: #6495ED; text-align: center; font-size: 3.0vw;
+    font-family: 'Dancing Script', cursive;">{{CreatorId.crGender}}</h1> 
+<h1 style="color: black; text-align: center; margin-top: -15%">Gender</h1>
+
+
+<h1 style="padding-top: 10%;
+		padding-bottom: 2%; 
+  		text-align: center; color: #6495ED; text-align: center; font-size: 3.0vw;
+    font-family: 'Dancing Script', cursive;">{{CreatorId.crEAddress}}</h1> 
+<h1 style="color: black; text-align: center;margin-top: -15% ">Email Address</h1>
 
 
 
-
-	<form class="form" 
-	 method="POST" action="/{{CreatorId.id}}/Recipe">
-
-
-	 <label style="text-align: center; font-size: 3vw;">
-		Name of Dish:
-	</label><br>
-	<input 
-		type="text" 
-		id="nNameofDish" 
-		name="nNameofDish"
-		placeholder="Enter your own signature dish" >
-
-	<br><br>
-
-	<label>
-		Main Ingredient:
-	</label>
-	<input 
-		type="text" 
-		id="nMainIngredient" 
-		name="nMainIngredient"
-		placeholder="Enter the main ingerdients" >
+<h1 style="padding-top: 10%;
+		padding-bottom: 2%; 
+  		text-align: center; color: #6495ED; text-align: center; font-size: 3.0vw;
+    font-family: 'Dancing Script', cursive;">{{CreatorId.crContactNumber}}</h1> 
+<h1 style="color: black; text-align: center; margin-top: -15%">Contact Number</h1>
 
 
 
-
-	<label style="padding-left: 3%">
-		Difficulty:
-	</label>
-	<input
-		type="text" 
-		id="nDifficulty" 
-		name="nDifficulty"
-		placeholder="Enter the Difficulty of Dish" >
-
-	<br><br>
-
-
-
-
-	<label>
-		Category:
-	</label>
-	<input 
-		style="margin-left: 5.5%"
-		type="text" 
-		id="nCategory" 
-		name="nCategory"
-		placeholder="Enter Category" >
-	
-<!--	<input type="button" style="color:powderblue" value="More..." onclick="addMoreIngredients()" >
--->
-
-	<label style="padding-left: 3%">
-		Servings:
-	</label>
-	<input 
-	style="margin-left: 0.7%"
-		type="number" 
-		id="nServings" 
-		name="nServings"
-		placeholder="How many people" >
-
-	<br><br>
-
-		<label >
-		Date:
-	</label>
-	<input 
-	style="margin-left: 9.5%"
-		type="date" 
-		id="nDate" 
-		name="nDate"
-		placeholder="Enter the date today" >
-
-
-
-	<label style="padding-left: 3%">
-		Preparation Time:
-	</label>
-	<input 
-	class="no-arrow" 
-	style="margin-left: 1%; width: 12%"
-		type="number" 
-		id="nPrepTime" 
-		name="nPrepTime"
-		placeholder="How many people" > minutes
-		<br><br>
-
-
-	<label style="padding-left: 54%">
-		Cooking Time:
-	</label>
-	<input class="no-arrow"
-	style="margin-left: 4%; width: 12%"
-		type="number" 
-		id="nCookTime" 
-		name="nCookTime"
-		placeholder="How many people" > minutes
-		<br><br>
-
-
-	<button 
-		style="color: #6495ED" 
-		type="submit" 
-		id="Create"
-		value="Create" 
-		name="Create">Create</button>
-
-	<label style="padding-left: 33%">
-		Total Time:
-	</label>
-	<input class="no-arrow"
-	style="margin-left: 7.5%; width: 12%"
-		type="number" 
-		id="nTotalTime" 
-		name="nTotalTime"
-		placeholder="How many people" readonly> minutes
-
-	<br><br>
-
-
-
-	<!-- <label>
-		Quantity:
-	</label>
-	<input 
-		type="number"
-		min="1" 
-		max="5" 
-		id="nQuantity" 
-		name="nQuantity"
-		placeholder="Enter the Quantity" >
-
-<br><br>
-	<label>
-		Unit:
-	</label>
-	<input 
-		type="number" 
-		id="nUnit" 
-		name="nUnit"
-		placeholder="Unit Here" >
-<br><br>
-	<label>
-		Ingredients:
-	</label>
-	<input 
-		type="text" 
-		id="nIngredients" 
-		name="nIngredients"
-		placeholder="Enter the Ingredients" >
-<br><br>
-	<label>
-		Procedures:
-	</label>
-	<input 
-		type="text" 
-		id="nProcedures" 
-		name="nProcedures"
-		placeholder="Enter the Procedures" >
- -->
-
-
-
-	{% csrf_token %}
-</form>
-
-
+<!-- 
 <table  id="details" style="margin-top: 3%" >
 	 
   <tr>
@@ -353,20 +207,7 @@ button[type=submit]:hover {
   </tr>
   	{% endfor %}
 </table>
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>	
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script>
-    $('#nDate').val(new Date().toJSON().slice(0,10));
-
-
-
-$(function () {
-  $("#nPrepTime, #nCookTime").keyup(function () {
-    $("#nTotalTime").val(+$("#nPrepTime").val() + +$("#nCookTime").val());
-  });
-});
-
+ -->
 
 </script>
 </body>

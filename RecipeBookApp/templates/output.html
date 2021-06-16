@@ -33,6 +33,7 @@
         z-index: -1; 
 }*/
 
+ 
 th {  
   text-align: center;
 }
@@ -132,8 +133,7 @@ button[type=submit]:hover {
     padding-bottom: 2%; 
       text-align: center; color: #6495ED; text-align: center; font-size: 3.0vw;
     font-family: 'Dancing Script', cursive;">-- {{CreatorId.crName|title}}'s Book --</h1> 
-
-    <table >
+<table >
       <tr style="font-size: 17px">
         
         <td>Email Address:</td>
@@ -143,11 +143,14 @@ button[type=submit]:hover {
       </tr>
       <tr style="color: red; font-size: 22px">
         
-        <td>{{CreatorId.crEAddress}}</td>
-        <td>{{CreatorId.crContactNumber}}</td>
+        <td><a href="/{{CreatorId.id}}/profile">{{CreatorId.crEAddress}}</a></td>
+        <td>{{CreatorId.crGender}}</td>
         <td>recipebook.ph/{{CreatorId.id}}/</td>
       </tr>
     </table>
+
+
+    Display here
 
   <!-- <form class="form" 
    method="POST" action="/{{CreatorId.id}}/addDish/addRecipe">

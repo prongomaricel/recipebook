@@ -1,36 +1,450 @@
-<!DOCTYPE html>  
-<html lang="en">  
-<head>  
-    <meta charset="UTF-8">  
-    <title>Employee Records</title> 
-    <link rel="stylesheet" href="static/css/keme.css">  
-</head>  
-<body>  
-<table class="table table-striped table-bordered table-sm">  
-    <thead class="thead-dark">  
-    <tr>  
-        <th>Employee ID</th>  
-        <th>Employee Name</th>  
-        <th>Employee Email</th>  
-        <th>Employee Contact</th>  
-        <th>Actions</th>  
-    </tr>  
-    </thead>  
-    <tbody>   
-    <tr>  
-        <td>{{ employee.eid }}</td>  
-        <td>{{ employee.ename }}</td>  
-        <td>{{ employee.eemail }}</td>  
-        <td>{{ employee.econtact }}</td>  
-        <td>  
-            <a href="/edit/{{ employee.id }}"><span class="glyphicon glyphicon-pencil" >Edit</span></a>  
-            <a href="/delete/{{ employee.id }}">Delete</a>  
-        </td>  
-    </tr>  
-    </tbody>  
-</table>  
-<br>  
-<br>  
-<center><a href="/emp" class="btn btn-primary">Add New Record</a></center>  
-</body>  
-</html> 
+<html>
+<head>
+    <title>Recipe Book</title>
+
+<!--    <script> 
+
+        var cnt = 3;
+        function addMoreIngredients() {
+            var ing = document.getElementById('Ingredients'),
+            clone = ing.cloneNode(true);
+            clone.id = "Ingredients"+cnt; clone.name = "Ingredients"+cnt;
+            document.body.appendChild(clone);
+            document.body.appendChild(document.createTextNode("   "));
+            document.body.appendChild(document.createElement("br"));
+            cnt += 1;
+        }
+    </script>
+-->
+
+<link rel="stylesheet" href="/static/css/style.css">
+<style>
+
+/*body{
+
+  background: url(/static/images/hp.jpg);
+  background-repeat: repeat-y;
+  background-size: 100% 100%;
+  position: absolute;
+  top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+        z-index: -1; 
+}*/
+
+ .no-arrow {
+    -moz-appearance: textfield;}
+
+
+  .no-arrow::-webkit-inner-spin-button {
+    display: none;}
+
+  .no-arrow::-webkit-outer-spin-button,
+  .no-arrow::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;}
+
+th {  
+  text-align: center;
+}
+
+
+
+table {
+    border: 3px dashed white;;
+  text-align: center;
+  border-collapse: collapse;
+  width: 85%;
+  padding-top: 2%
+
+  margin-right: 7%; margin-left: 7%
+
+}
+
+td {
+  text-align: left; 
+}
+
+.form {
+    padding-top: 5%;
+    padding-right: 6%;
+    padding-left: 6%;
+    width: 85%;
+    background-color: #6495ED;
+    border-radius: 5%;
+    margin-left: 7%;
+    margin-right: 10%;
+    margin-top: 2%}
+
+
+input[type=text], input[type=number], input[type=date], input[type=button],input[type=file],select {
+  width: 35%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+button[type=button] {
+  width: 20%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  margin-left: 7%;
+  margin-top: 1%;
+  border: none;
+  border-radius: 90px;
+  cursor: pointer;
+}
+
+button[type=button]:hover {
+  background-color: #45a049;
+}
+
+button[type=submit] {
+  width: 20%;
+  background-color: powderblue;
+  color: white;
+  padding: 10px 20px;
+  margin-top: 1%;
+  border: none;
+  border-radius: 90px;
+  cursor: pointer;
+  margin-bottom: 2%;
+  text-align: center;
+}
+
+button[type=submit]:hover {
+  background-color: #45a049;
+}
+
+
+
+select {
+  position: absolute;
+}
+
+</style>
+
+</head>
+
+<body style="background-color: powderblue">
+
+ <nav>
+    <div class="logo" >-- Recipe Book --</div>
+    <label for="btn" class="icon"><span class="fa fa-bars"></span></label>
+    <input type="checkbox" id="btn">
+    <ul>
+      <li>
+        <label for="btn-1" class="show">Home<i class="fas fa-caret-down" style="padding-left: 10px;"></i></label>
+        <a href="/home" ><i class="fa fa-home" style="padding-right: 10px;"></i>Home</a></li>
+        <li><a href="/about" > About Us<i class="fa fa-question-circle" style="padding-left: 10px;"></i></a></li>
+        <li><a href="/contact">Contact</a></li></ul></nav>
+
+    <h1 style="padding-top: 2%;
+        padding-bottom: 2%; 
+        text-align: center; color: #6495ED; text-align: center; font-size: 3.0vw;
+    font-family: 'Dancing Script', cursive;">-- {{CreatorId.crName|title}}'s Book --</h1> 
+
+        <table style="padding-left: 1%">
+            <tr style="font-size: 17px;padding-left: 5%;">
+                
+                <td style="padding-left: 2%;">Email Address:</td>
+                <td style="padding-left: 10%;">{{CreatorId.crName|title}} is:</td>
+                <td style="padding-left: 2%;">Your Recipe Book Link:</td>
+
+            </tr>
+            <tr style="color: red; font-size: 22px;padding-left: 5%;margin-left:10%">
+                
+                <td style="padding-left: 2%;"><a href="/{{CreatorId.id}}/profile">{{CreatorId.crEAddress}}</a></td>
+                <td style="padding-left: 10%;">{{CreatorId.crGender}}{{model.choices}}</td>
+                <td style="padding-left: 2%;">recipebook.ph/{{CreatorId.id}}/</td>
+            </tr>
+        </table>
+
+
+
+
+    <form class="form" 
+     method="POST" action="/{{CreatorId.id}}/Recipe1">
+
+
+    <label >
+        Quantity:
+    </label>
+
+    <input 
+    class="no-arrow"
+    style="margin-left: 1%; width: 8%"
+        type="number" 
+        id="nQuantity" 
+        name="nQuantity">
+
+
+<!--     <input style="margin-left: 1%; width: 8%"
+        type="text" 
+        id="nUnit" 
+        name="nUnit" > -->
+
+<noscript>This page requires JavaScript be available and enabled to function properly</noscript>
+  <label for="nUnit" style="padding-left: 2%">Unit</label>
+  <select style="margin-left: 1%; width: 12%" id="nUnit" size="1">
+    <option value="empty">Select a Unit</option>
+    <option value="North America">tsp</option>
+    <option value="South America">tbsp</option>
+    <option value="Asia">fl oz</option>
+    <option value="Europe">cup</option>
+    <option value="Europe">fl pt</option>
+    <option value="Europe">fl qt</option>
+    <option value="Europe">gal</option>
+    <option value="Europe">mL</option>
+    <option value="Europe">L</option>
+    <option value="Europe">dL</option>
+    <option value="Europe">lb</option>
+    <option value="Europe">oz</option>
+    <option value="Europe">mg</option>
+    <option value="Europe">g</option>
+    <option value="Europe">kg</option>
+    <option value="Europe">mm</option>
+    <option value="Europe">cm</option>
+    <option value="Europe">m</option>
+    <option value="Europe">inch</option>
+
+  </select>
+
+
+
+    <label style="padding-left: 18%">
+        Ingredients:
+    </label>
+    <input
+        type="text" 
+        id="nIngredients" 
+        name="nIngredients"
+        placeholder="Enter the Difficulty of Dish" >
+
+    <br><br>
+
+
+
+
+    <label>
+        Procedures:
+    </label>
+    <input 
+        style="margin-left: 5.5%"
+        type="text" 
+        id="nProcedures" 
+        name="nProcedures"
+        placeholder="Enter Category" >
+    
+<!--    <input type="button" style="color:powderblue" value="More..." onclick="addMoreIngredients()" >
+-->
+
+    <label style="padding-left: 3%">
+        Image:
+    </label>
+    <input 
+    style="margin-left: 0.7%"
+        type="file" 
+        id="nImage" 
+        name="nImage"
+        placeholder="How many people" >
+
+    <br><br>
+
+
+    <button 
+        style="color: #6495ED" 
+        type="submit" 
+        id="Create"
+        value="Create" 
+        name="Create">Create</button>
+
+
+
+    <!-- <label>
+        Quantity:
+    </label>
+    <input 
+        type="number"
+        min="1" 
+        max="5" 
+        id="nQuantity" 
+        name="nQuantity"
+        placeholder="Enter the Quantity" >
+
+<br><br>
+    <label>
+        Unit:
+    </label>
+    <input 
+        type="number" 
+        id="nUnit" 
+        name="nUnit"
+        placeholder="Unit Here" >
+<br><br>
+    <label>
+        Ingredients:
+    </label>
+    <input 
+        type="text" 
+        id="nIngredients" 
+        name="nIngredients"
+        placeholder="Enter the Ingredients" >
+<br><br>
+    <label>
+        Procedures:
+    </label>
+    <input 
+        type="text" 
+        id="nProcedures" 
+        name="nProcedures"
+        placeholder="Enter the Procedures" >
+ -->
+
+
+
+    {% csrf_token %}
+</form>
+
+
+<table  id="details" style="margin-top: 3%" >
+    <tr>
+        <th style="width: 52%">Dish Name</th>
+        <th>Main Ingre</th>
+        <th>Difficulties</th>
+        <th>Category</th>
+        <th>Servings</th>
+        <th style="width: 52%">Date Created</th>
+        <th style="width: 52%">Update/Delete</th>
+    </tr>
+    {% for dish in CreatorId.dish_set.all %}
+
+    <tr>
+        <td>{{ dish.dNameofDish }}</a></td>
+        <td>{{ dish.dServings }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+    $('#nDate').val(new Date().toJSON().slice(0,10));
+
+
+
+$(function () {
+  $("#nPrepTime, #nCookTime").keyup(function () {
+    $("#nTotalTime").val(+$("#nPrepTime").val() + +$("#nCookTime").val());
+  });
+});
+
+
+
+var x, i, j, l, ll, selElmnt, a, b, c;
+/*look for any elements with the class "custom-select":*/
+x = document.getElementsByClassName("custom-select");
+l = x.length;
+for (i = 0; i < l; i++) {
+  selElmnt = x[i].getElementsByTagName("select")[0];
+  ll = selElmnt.length;
+  /*for each element, create a new DIV that will act as the selected item:*/
+  a = document.createElement("DIV");
+  a.setAttribute("class", "select-selected");
+  a.innerHTML = selElmnt.options[selElmnt.selectedIndex].innerHTML;
+  x[i].appendChild(a);
+  /*for each element, create a new DIV that will contain the option list:*/
+  b = document.createElement("DIV");
+  b.setAttribute("class", "select-items select-hide");
+  for (j = 1; j < ll; j++) {
+    /*for each option in the original select element,
+    create a new DIV that will act as an option item:*/
+    c = document.createElement("DIV");
+    c.innerHTML = selElmnt.options[j].innerHTML;
+    c.addEventListener("click", function(e) {
+        /*when an item is clicked, update the original select box,
+        and the selected item:*/
+        var y, i, k, s, h, sl, yl;
+        s = this.parentNode.parentNode.getElementsByTagName("select")[0];
+        sl = s.length;
+        h = this.parentNode.previousSibling;
+        for (i = 0; i < sl; i++) {
+          if (s.options[i].innerHTML == this.innerHTML) {
+            s.selectedIndex = i;
+            h.innerHTML = this.innerHTML;
+            y = this.parentNode.getElementsByClassName("same-as-selected");
+            yl = y.length;
+            for (k = 0; k < yl; k++) {
+              y[k].removeAttribute("class");
+            }
+            this.setAttribute("class", "same-as-selected");
+            break;
+          }
+        }
+        h.click();
+    });
+    b.appendChild(c);
+  }
+  x[i].appendChild(b);
+  a.addEventListener("click", function(e) {
+      /*when the select box is clicked, close any other select boxes,
+      and open/close the current select box:*/
+      e.stopPropagation();
+      closeAllSelect(this);
+      this.nextSibling.classList.toggle("select-hide");
+      this.classList.toggle("select-arrow-active");
+    });
+}
+function closeAllSelect(elmnt) {
+  /*a function that will close all select boxes in the document,
+  except the current select box:*/
+  var x, y, i, xl, yl, arrNo = [];
+  x = document.getElementsByClassName("select-items");
+  y = document.getElementsByClassName("select-selected");
+  xl = x.length;
+  yl = y.length;
+  for (i = 0; i < yl; i++) {
+    if (elmnt == y[i]) {
+      arrNo.push(i)
+    } else {
+      y[i].classList.remove("select-arrow-active");
+    }
+  }
+  for (i = 0; i < xl; i++) {
+    if (arrNo.indexOf(i)) {
+      x[i].classList.add("select-hide");
+    }
+  }
+}
+/*if the user clicks anywhere outside the select box,
+then close all select boxes:*/
+document.addEventListener("click", closeAllSelect);
+
+
+var element = document.querySelector('select');
+
+element.addEventListener('mousedown', function () {
+    this.size=5;
+});
+element.addEventListener('change', function () {
+    this.blur();
+});
+element.addEventListener('blur', function () {
+    this.size=0;
+});
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>

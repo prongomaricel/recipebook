@@ -57,17 +57,7 @@
     cursor: pointer;
     margin-bottom: 2%;}
 
-  .no-arrow {
-    -moz-appearance: textfield;}
-
-
-  .no-arrow::-webkit-inner-spin-button {
-    display: none;}
-
-  .no-arrow::-webkit-outer-spin-button,
-  .no-arrow::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;}
+ 
 
 
 
@@ -106,8 +96,8 @@
       <h4>It is even better than <br>an expensive cookery book</h4>
       <p>Let us Express your Signature Dish</p>
 
-      <button type="button" id="formButton">+ Create</button>
-      <form class="form" id="form1" style="text-align: center; padding-top: 3%" method="POST" action="/newlist_url">
+      <button type="button" id="creatorbutton">+ Create</button>
+      <form class="form" id="creatorform" style="text-align: center; padding-top: 3%" method="POST" action="/newlist_url">
 
         <label>Creator Name:</label><br>
 
@@ -125,20 +115,20 @@
         placeholder="Please Enter Your Name"
         required><br><br>
 
-        <label>Gender:</label><br>
+        <label id="gender" required>Gender:</label><br>
 
 
         <input 
         type="radio" 
-        id="female" 
+        id="F" 
         name="gender" 
-        value="Female">
+        value="Female" >
 
         <label for="Female">Female</label>
 
         <input 
         type="radio" 
-        id="male" 
+        id="M" 
         name="gender" 
         value="Male">
 
@@ -147,9 +137,9 @@
 
         <input 
         type="radio" 
-        id="other" 
+        id="O" 
         name="gender" 
-        value="other">
+        value="other" required>
 
         <label for="other">Other</label><br><br>
 
@@ -210,8 +200,8 @@
 
 <script>
   $(document).ready(function() {
-    $("#formButton").click(function() {
-    $("#form1").toggle();});});
+    $("#creatorbutton").click(function() {
+    $("#creatorform").toggle();});});
  </script>
 
 </html>

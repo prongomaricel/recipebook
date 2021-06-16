@@ -3,7 +3,8 @@ from datetime import date
 
 class Creator(models.Model):
 	crName = models.TextField(default="")
-	crGender =models.TextField(default="")
+	choices = (('F', 'Female'), ('M', 'Male'),('O','Others'))
+	crGender = models.CharField(max_length=1 , help_text="Seklectamon" ,choices=choices, null=True)
 	crEAddress = models.EmailField(default="")
 	crContactNumber = models.CharField(default="", max_length=11)
 #	uImage = models.TextField(default="")
@@ -29,8 +30,7 @@ class Recipe(models.Model):
 	rUnit = models.TextField(default="")
 	rIngredients= models.TextField(default="")
 	rProcedures = models.TextField(default="")
-
-#	rImage = models.TextField(default="")
+	rImage = models.TextField(default="")
 	class meta:
 		db_table = "recipe"
 

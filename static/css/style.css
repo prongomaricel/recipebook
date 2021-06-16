@@ -395,10 +395,10 @@ td {
 }
 
 
-h4{
+/*h4{
     font-size: 2.0vw;
     color: black;
-    /* font-family: 'Dancing Script', cursive; */
+   font-family: 'Dancing Script', cursive;
     padding-top: 25%;
       padding-left: 7%;
       text-align: left;
@@ -406,7 +406,7 @@ h4{
 p{
   font-size: 1.25vw;
   color: black;
-  /* font-family: 'Dancing Script', cursive; */
+   font-family: 'Dancing Script', cursive; 
 
     padding-left: 7%;
     text-align: left;
@@ -416,12 +416,12 @@ p{
 h3{
   font-size: 0.90vw;
   color: black;
-  /* font-family: 'Dancing Script', cursive; */
+  font-family: 'Dancing Script', cursive;
 
     padding-left: 5%;
     text-align: left;
     padding-right: 30.20vw;
-}
+}*/
 /* section{
   background: url(bg3.jpg);
   background-position: center;
