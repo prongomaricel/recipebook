@@ -16,11 +16,13 @@ urlpatterns = [
 
     url(r'^(\d+)/Recipe$', views.ViewRecipe, name='ViewRecipe'),
 
+
+
     url(r'^(\d+)/addDish/addRecipe$', views.AddRecipe, name='AddRecipe'),
 
 
 
-    url(r'^(\d+)/Recipe1$', views.ViewRecipe1, name='ViewRecipe1'),
+    url(r'^(\d+)/s$', views.ViewList2, name='ViewList2'),
 
     url(r'^(\d+)/profile$', views.Profile, name='Profile'),
 

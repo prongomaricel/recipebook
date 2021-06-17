@@ -39,16 +39,42 @@ def AddDish(request, cId):
     Dish.objects.create(CreatorId=creatorId, dNameofDish=request.POST['nNameofDish'],dMainIngredient=request.POST['nMainIngredient'],dDifficulty=request.POST['nDifficulty'],dCategory=request.POST['nCategory'],dServings=request.POST['nServings'],)
     return redirect(f'/{creatorId.id}/')
 
-def ViewRecipe(request, cId):
-    creatorId = Creator.objects.get(id=cId)
-#   dishes = Dish.objects.filter(CreatorId=creatorId)
-    return render(request, 'show.html', {'CreatorId':creatorId})
+# def ViewRecipe(request, cId):
+#     creatorId = Creator.objects.get(id=cId)
+# #   dishes = Dish.objects.filter(CreatorId=creatorId)
+#     return render(request, 'show.html', {'CreatorId':creatorId})
 
 
 def AddRecipe(request, cId):
     creatorId = Creator.objects.get(id=cId)
     Dish.objects.create(CreatorId=creatorId, dNameofDish=request.POST['nNameofDish'],dMainIngredient=request.POST['nMainIngredient'],dDifficulty=request.POST['nDifficulty'],dCategory=request.POST['nCategory'],dServings=request.POST['nServings'],)
     return redirect(f'/{creatorId.id}/Recipe')
+
+
+def ViewList2(request, cId):
+    creatorId =Creator.objects.get(id=cId)
+#   dishes = Dish.objects.filter(CreatorId=creatorId)
+    return render(request, 'output.html', {'CreatorId':creatorId})
+
+
+def ViewRecipe(request):
+#   newCreator = Creator.objects.create()
+    creatorId = Dish.objects.create(dNameofDish=request.POST['nNameofDish'],dMainIngredient=request.POST['nMainIngredient'],dDifficulty=request.POST['nDifficulty'],dCategory=request.POST['nCategory'],dServings=request.POST['nServings'],)
+
+#   Dish.objects.create(CreatorId=newCreator, crName=request.POST['fName'],)
+    return redirect(f'/{creatorId.id}/s')
+
+
+
+
+
+
+
+def AddDish(request, cId):
+    creatorId = Creator.objects.get(id=cId)
+    Dish.objects.create(CreatorId=creatorId, dNameofDish=request.POST['nNameofDish'],dMainIngredient=request.POST['nMainIngredient'],dDifficulty=request.POST['nDifficulty'],dCategory=request.POST['nCategory'],dServings=request.POST['nServings'],)
+    return redirect(f'/{creatorId.id}/s')
+
 
 
 

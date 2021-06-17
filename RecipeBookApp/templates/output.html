@@ -150,7 +150,6 @@ button[type=submit]:hover {
     </table>
 
 
-    Display here
 
   <!-- <form class="form" 
    method="POST" action="/{{CreatorId.id}}/addDish/addRecipe">
@@ -290,13 +289,15 @@ button[type=submit]:hover {
     <th>Difficulties/th>
     <th>Category</th>
     <th>Servings</th> -->
-    <th style="width: 52%">Date Created</th>
+    <th style="width: 52%">Difficulty</th>
+    <th style="width: 52%">Servings</th>
     <th style="width: 52%">Update/Delete</th>
 
   </tr>
   {% for dish in CreatorId.dish_set.all %} 
   <tr> 
-  <td><a href="#" >{{ dish.dNameofDish }}</a></td>
+  <td>{{ dish.dNameofDish }}</td>
+  <td>{{ dish.dDifficulty }}</td>
     <td>{{ dish.dServings }}</td>
   </tr>
     {% endfor %}
