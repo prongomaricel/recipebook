@@ -14,11 +14,6 @@ urlpatterns = [
 
     url(r'^(\d+)/addDish$', views.AddDish, name='addDish'),
 
-    url(r'^(\d+)/Recipe$', views.ViewRecipe, name='ViewRecipe'),
-
-
-
-    url(r'^(\d+)/addDish/addRecipe$', views.AddRecipe, name='AddRecipe'),
 
 
 
@@ -26,9 +21,6 @@ urlpatterns = [
 
     url(r'^(\d+)/profile$', views.Profile, name='Profile'),
 
-
-
-    url(r'^(\d+)/addDish/addRecipe1$', views.AddRecipe1, name='AddRecipe1'),
 
     url('admin/', admin.site.urls),
 ]
