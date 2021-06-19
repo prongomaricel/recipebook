@@ -25,7 +25,7 @@ class Dish(models.Model):
 
 
 class Recipe(models.Model):
-	DishId = models.ForeignKey(Dish, default=None, on_delete=models.DO_NOTHING)
+	CreatorId = models.ForeignKey(Dish, default=None, on_delete=models.DO_NOTHING)
 	rQuantity = models.TextField(default="")
 	rUnit = models.TextField(default="")
 	rIngredients= models.TextField(default="")
@@ -37,7 +37,7 @@ class Recipe(models.Model):
 
 
 class Comments(models.Model):
-	DishId = models.ForeignKey(Dish, default=None, on_delete=models.DO_NOTHING)
+	CreatorId = models.ForeignKey(Dish, default=None, on_delete=models.DO_NOTHING)
 	cDate = models.DateField(blank=True, default=date(1111, 11, 11), null=True, help_text="Today Date.")
 	cName = models.TextField(default="")
 	cComments = models.TextField(default="", max_length=100)
@@ -48,7 +48,7 @@ class Comments(models.Model):
 
 
 #class User(models.Model):
-#	CommentId = models.ForeignKey(Comments, default=None, on_delete=models.DO_NOTHING)
+#	CreatorId = models.ForeignKey(Comments, default=None, on_delete=models.DO_NOTHING)
 #	uName = models.TextField(default="")
 #	uEAddress = models.EmailField(default="")
 #	uThumbsUp = models.CharField(default="", max_length=100)

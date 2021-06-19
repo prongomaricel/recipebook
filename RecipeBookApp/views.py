@@ -39,7 +39,7 @@ def ViewList2(request, cId):
 
 def AddDish(request, cId):
     creatorId = Creator.objects.get(id=cId)
-    Dish.objects.create(CreatorId=creatorId, dNameofDish=request.POST['nNameofDish'],dMainIngredient=request.POST['nMainIngredient'],dDifficulty=request.POST['nDifficulty'],dCategory=request.POST['nCategory'],dServings=request.POST['nServings'],)
+    Dish.objects.create(CreatorId=creatorId, dNameofDish=request.POST['nNameofDish'],dMainIngredient=request.POST['nMainIngredient'],dDifficulty=request.POST['nDifficulty'],dCategory=request.POST['nCategory'],dServings=request.POST['nServings'],)#rQuantity=request.POST['nQuantity'],rIngredients=request.POST['nIngredients'],rProcedures=request.POST['nProcedures'],)
     return redirect(f'/{creatorId.id}/s')
 
 
