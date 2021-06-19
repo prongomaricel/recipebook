@@ -8,18 +8,12 @@
  
 <style >
 
-  body::after {
-    content: "";
-    background: url(/static/images/hp.jpg);
-    opacity: 58%;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    position: absolute;
-    z-index: -1; 
+  body {
+    background: url(/static/images/bg9.webp);
     background-size: 100% 100%;
-    background-repeat: repeat-x;}
+    background-repeat: no-repeat;
+    background-position: top;
+    background-attachment: fixed}
 
   input[type=radio], select {
     padding: 12px 20px;
@@ -33,7 +27,7 @@
     background-color: #4CAF50;
     color: white;
     padding: 10px 20px;
-    margin-left: 7%;
+    margin-left: 12%;
     margin-top: 1%;
     border: none;
     border-radius: 90px;
@@ -67,13 +61,13 @@
 
 
   .form {
-    width: 43%;
+    width: 40%;
     float: right;
     background-color: ivory;
     border-radius: 5%;
     display: none;
-    margin-top: -30%;
-    margin-right:8%;
+    margin-top: -39%;
+    margin-right:10%;
     transition: .5s;}
 
 </style>
@@ -93,11 +87,11 @@
 
 
 
-      <h4 style="margin-top: 28%; margin-left: 7%;font-size: 1.50vw">It is even better than <br>an expensive cookery book</h4>
-      <p style="margin-left:7%;font-size: 1.20vw">Let us Express your Signature Dish</p>
+      <h4 style="margin-top: 34%; margin-left: 12%;font-size: 1.50vw">It is even better than <br>an expensive cookery book</h4>
+      <p style="margin-left:12%;font-size: 1.20vw">Let us Express your Signature Dish</p>
 
       <button type="button" id="creatorbutton">+ Create</button>
-      <form class="form" id="creatorform" style="text-align: center; padding-top: 3%" method="POST" action="/newlist_url">
+      <form class="form" id="creatorform" style="text-align: center; padding-top: 1.50%" method="POST" action="/newlist_url">
 
         <label>Creator Name:</label><br>
 
@@ -174,28 +168,13 @@
         type="text"
         id="fContactNumber"
         name="fContactNumber"
-        placeholder="0912-345-6789"><br><br>
+        placeholder="0912-345-6789"><br>
 
-        <button type="submit" id="Continue" value="Continue" name="Continue">Submit</button><br><br>{% csrf_token %}</form>
-
-
+        <button style="margin-top: 5%" type="submit" id="Continue" value="Continue" name="Continue">Submit</button><br><br>{% csrf_token %}</form>
 
 
-    
-<!-- <table id="recipe">
-        
-        <tr>
-            <th>Name of Dish</th>
-            <th>Owner of Recipe</th>
-        </tr>
-        {% for dish in dishes %}
-        <tr>
-            <td>{{ dish.crName }}</td>
-            <td> {{ dish.crEAddress }}</td>
-        </tr>
-        {% endfor %}
-    </table>
- -->
+
+
 </body>
 
 <script>

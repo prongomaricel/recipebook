@@ -78,7 +78,7 @@ td {
     margin-top: 2%}
 
 
-input[type=text], input[type=number], input[type=date], input[type=button],select {
+input[type=text], input[type=number], input[type=date], input[type=button],  input[type=file],select {
   width: 35%;
   padding: 12px 20px;
   margin: 8px 0;
@@ -120,6 +120,11 @@ button[type=submit] {
 button[type=submit]:hover {
   background-color: #45a049;
 }
+
+select {
+  position: absolute;
+}
+
 
 
 
@@ -191,7 +196,7 @@ button[type=submit]:hover {
 
 
 
-	<label style="padding-left: 3%">
+	<label style="padding-left: 1%">
 		Difficulty:
 	</label>
 	<input
@@ -209,7 +214,7 @@ button[type=submit]:hover {
 		Category:
 	</label>
 	<input 
-		style="margin-left: 5.5%"
+		style="margin-left: 6.7%"
 		type="text" 
 		id="nCategory" 
 		name="nCategory"
@@ -218,11 +223,11 @@ button[type=submit]:hover {
 <!--	<input type="button" style="color:powderblue" value="More..." onclick="addMoreIngredients()" >
 -->
 
-	<label style="padding-left: 3%">
+	<label style="padding-left: 1%">
 		Servings:
 	</label>
 	<input 
-	style="margin-left: 0.7%"
+	style="margin-left: 0.2%"
 		type="number" 
 		id="nServings" 
 		name="nServings"
@@ -230,19 +235,8 @@ button[type=submit]:hover {
 
 	<br><br>
 
-		<label >
-		Date:
-	</label>
-	<input 
-	style="margin-left: 9.5%"
-		type="date" 
-		id="nDate" 
-		name="nDate"
-		placeholder="Enter the date today" >
 
-
-
-	<label style="padding-left: 3%">
+	<label>
 		Preparation Time:
 	</label>
 	<input 
@@ -252,14 +246,24 @@ button[type=submit]:hover {
 		id="nPrepTime" 
 		name="nPrepTime"
 		placeholder="How many people" > minutes
-		<br><br>
+		
 
+	<label style="padding-left: 12%" >
+		Date:
+	</label>
+	<input 
+	style="margin-left: 4%"
+		type="date" 
+		id="nDate" 
+		name="nDate"
+		placeholder="Enter the date today" >
+<br><br>
 
-	<label style="padding-left: 54%">
+	<label>
 		Cooking Time:
 	</label>
 	<input class="no-arrow"
-	style="margin-left: 4%; width: 12%"
+	style="margin-left: 4.8%; width: 12%"
 		type="number" 
 		id="nCookTime" 
 		name="nCookTime"
@@ -267,24 +271,113 @@ button[type=submit]:hover {
 		<br><br>
 
 
-	<button 
-		style="color: #6495ED" 
-		type="submit" 
-		id="Create"
-		value="Create" 
-		name="Create">Create</button>
-
-	<label style="padding-left: 33%">
+	<label>
 		Total Time:
 	</label>
 	<input class="no-arrow"
-	style="margin-left: 7.5%; width: 12%"
+	style="margin-left: 8.5%; width: 12%"
 		type="number" 
 		id="nTotalTime" 
 		name="nTotalTime"
 		placeholder="How many people" readonly> minutes
 
 	<br><br>
+
+	<hr>
+
+	<br><br>
+
+	<label >
+        Qty:
+    </label>
+
+    <input 
+    class="no-arrow"
+    style="margin-left: %; width: 10%"
+        type="number" 
+        id="nQuantity" 
+        name="nQuantity">
+
+
+<!--     <input style="margin-left: 1%; width: 8%"
+        type="text" 
+        id="nUnit" 
+        name="nUnit" > -->
+
+<noscript>This page requires JavaScript be available and enabled to function properly</noscript>
+  <label for="nUnit" style="padding-left: 1%">Unit: </label>
+  <select style="margin-left: %; width: 10%" id="nUnit" size="1">
+    <option value="empty">Select a Unit</option>
+    <option value="North America">tsp</option>
+    <option value="South America">tbsp</option>
+    <option value="Asia">fl oz</option>
+    <option value="Europe">cup</option>
+    <option value="Europe">fl pt</option>
+    <option value="Europe">fl qt</option>
+    <option value="Europe">gal</option>
+    <option value="Europe">mL</option>
+    <option value="Europe">L</option>
+    <option value="Europe">dL</option>
+    <option value="Europe">lb</option>
+    <option value="Europe">oz</option>
+    <option value="Europe">mg</option>
+    <option value="Europe">g</option>
+    <option value="Europe">kg</option>
+    <option value="Europe">mm</option>
+    <option value="Europe">cm</option>
+    <option value="Europe">m</option>
+    <option value="Europe">inch</option>
+
+  </select>
+
+
+
+    <label style="padding-left: 15%">
+        Ingredients:
+    </label>
+    <input
+    style="width: 34%"
+        type="text" 
+        id="nIngredients" 
+        name="nIngredients"
+        placeholder="Enter the Difficulty of Dish" >
+
+    <br><br>
+
+
+
+
+    <label>
+        Procedures:
+    </label>
+    <input 
+        style="margin-left: 1%; width: 70%"
+        type="text" 
+        id="nProcedures" 
+        name="nProcedures"
+        placeholder="Enter Category" ><br><br>
+    
+<!--    <input type="button" style="color:powderblue" value="More..." onclick="addMoreIngredients()" >
+-->
+
+    <label>
+        Image:
+    </label>
+    <input 
+    style="margin-left: 6%; width: 70%"
+        type="file" 
+        id="nImage" 
+        name="nImage"
+        placeholder="How many people" >
+
+    <br><br>
+
+    <button 
+		style="color: #6495ED" 
+		type="submit" 
+		id="Create"
+		value="Create" 
+		name="Create">Create</button>
 
 
 
@@ -365,6 +458,99 @@ $(function () {
   $("#nPrepTime, #nCookTime").keyup(function () {
     $("#nTotalTime").val(+$("#nPrepTime").val() + +$("#nCookTime").val());
   });
+});
+
+
+var x, i, j, l, ll, selElmnt, a, b, c;
+/*look for any elements with the class "custom-select":*/
+x = document.getElementsByClassName("custom-select");
+l = x.length;
+for (i = 0; i < l; i++) {
+  selElmnt = x[i].getElementsByTagName("select")[0];
+  ll = selElmnt.length;
+  /*for each element, create a new DIV that will act as the selected item:*/
+  a = document.createElement("DIV");
+  a.setAttribute("class", "select-selected");
+  a.innerHTML = selElmnt.options[selElmnt.selectedIndex].innerHTML;
+  x[i].appendChild(a);
+  /*for each element, create a new DIV that will contain the option list:*/
+  b = document.createElement("DIV");
+  b.setAttribute("class", "select-items select-hide");
+  for (j = 1; j < ll; j++) {
+    /*for each option in the original select element,
+    create a new DIV that will act as an option item:*/
+    c = document.createElement("DIV");
+    c.innerHTML = selElmnt.options[j].innerHTML;
+    c.addEventListener("click", function(e) {
+        /*when an item is clicked, update the original select box,
+        and the selected item:*/
+        var y, i, k, s, h, sl, yl;
+        s = this.parentNode.parentNode.getElementsByTagName("select")[0];
+        sl = s.length;
+        h = this.parentNode.previousSibling;
+        for (i = 0; i < sl; i++) {
+          if (s.options[i].innerHTML == this.innerHTML) {
+            s.selectedIndex = i;
+            h.innerHTML = this.innerHTML;
+            y = this.parentNode.getElementsByClassName("same-as-selected");
+            yl = y.length;
+            for (k = 0; k < yl; k++) {
+              y[k].removeAttribute("class");
+            }
+            this.setAttribute("class", "same-as-selected");
+            break;
+          }
+        }
+        h.click();
+    });
+    b.appendChild(c);
+  }
+  x[i].appendChild(b);
+  a.addEventListener("click", function(e) {
+      /*when the select box is clicked, close any other select boxes,
+      and open/close the current select box:*/
+      e.stopPropagation();
+      closeAllSelect(this);
+      this.nextSibling.classList.toggle("select-hide");
+      this.classList.toggle("select-arrow-active");
+    });
+}
+function closeAllSelect(elmnt) {
+  /*a function that will close all select boxes in the document,
+  except the current select box:*/
+  var x, y, i, xl, yl, arrNo = [];
+  x = document.getElementsByClassName("select-items");
+  y = document.getElementsByClassName("select-selected");
+  xl = x.length;
+  yl = y.length;
+  for (i = 0; i < yl; i++) {
+    if (elmnt == y[i]) {
+      arrNo.push(i)
+    } else {
+      y[i].classList.remove("select-arrow-active");
+    }
+  }
+  for (i = 0; i < xl; i++) {
+    if (arrNo.indexOf(i)) {
+      x[i].classList.add("select-hide");
+    }
+  }
+}
+/*if the user clicks anywhere outside the select box,
+then close all select boxes:*/
+document.addEventListener("click", closeAllSelect);
+
+
+var element = document.querySelector('select');
+
+element.addEventListener('mousedown', function () {
+    this.size=5;
+});
+element.addEventListener('change', function () {
+    this.blur();
+});
+element.addEventListener('blur', function () {
+    this.size=0;
 });
 
 

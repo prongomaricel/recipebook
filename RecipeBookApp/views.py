@@ -24,7 +24,7 @@ def Profile(request, cId):
 def ViewList(request, cId):
     creatorId =Creator.objects.get(id=cId)
 #   dishes = Dish.objects.filter(CreatorId=creatorId)
-    return render(request, 'next.html', {'CreatorId':creatorId})
+    return render(request, 'recipe.html', {'CreatorId':creatorId})
 
 def NewList(request):
 #   newCreator = Creator.objects.create()
