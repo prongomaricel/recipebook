@@ -20,18 +20,12 @@
 <link rel="stylesheet" href="/static/css/style.css">
 <style>
 
-/*body{
-
-  background: url(/static/images/hp.jpg);
-  background-repeat: repeat-y;
-  background-size: 100% 100%;
-  position: absolute;
-  top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-        z-index: -1; 
-}*/
+	body {
+    background: url(/static/images/bg14.jpg);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: top;
+    background-attachment: fixed}
 
  .no-arrow {
     -moz-appearance: textfield;}
@@ -71,7 +65,7 @@ td {
 	padding-right: 6%;
 	padding-left: 6%;
     width: 85%;
-    background-color: #6495ED;
+    background-color: powderblue;
     border-radius: 5%;
     margin-left: 7%;
     margin-right: 10%;
@@ -151,17 +145,17 @@ select {
     font-family: 'Dancing Script', cursive;">-- {{CreatorId.crName|title}}'s Book --</h1> 
 
 		<table style="padding-left: 1%">
-			<tr style="font-size: 17px;padding-left: 5%;">
+			<tr style="font-size: 17px;">
 				
 				<td style="padding-left: 2%;">Email Address:</td>
-				<td style="padding-left: 4%;">{{CreatorId.crName|title}} is:</td>
+				<td style="padding-left: 0.50%;">{{CreatorId.crName|title}} is:</td>
 				<td style="padding-left: 2%;">Your Recipe Book Link:</td>
 
 			</tr>
-			<tr style="color: red; font-size: 22px;padding-left: 5%;margin-left:10%">
+			<tr style="font-size: 22px;">
 				
 				<td style="padding-left: 2%;"><a href="/{{CreatorId.id}}/profile">{{CreatorId.crEAddress}}</a></td>
-				<td style="padding-left: 4%;">{{CreatorId.crGender}}{{model.choices}}</td>
+				<td style="padding-left: 0.50%;">{{CreatorId.crGender}}{{model.choices}}</td>
 				<td style="padding-left: 2%;">recipebook.ph/{{CreatorId.id}}/</td>
 			</tr>
 		</table>
@@ -307,26 +301,26 @@ select {
 <noscript>This page requires JavaScript be available and enabled to function properly</noscript>
   <label for="nUnit" style="padding-left: 1%">Unit: </label>
   <select style="margin-left: %; width: 10%" id="nUnit" size="1">
-    <option value="empty">Select a Unit</option>
-    <option value="North America">tsp</option>
-    <option value="South America">tbsp</option>
-    <option value="Asia">fl oz</option>
-    <option value="Europe">cup</option>
-    <option value="Europe">fl pt</option>
-    <option value="Europe">fl qt</option>
-    <option value="Europe">gal</option>
-    <option value="Europe">mL</option>
-    <option value="Europe">L</option>
-    <option value="Europe">dL</option>
-    <option value="Europe">lb</option>
-    <option value="Europe">oz</option>
-    <option value="Europe">mg</option>
-    <option value="Europe">g</option>
-    <option value="Europe">kg</option>
-    <option value="Europe">mm</option>
-    <option value="Europe">cm</option>
-    <option value="Europe">m</option>
-    <option value="Europe">inch</option>
+    <option value="empty">Select</option>
+    <option value="tsp">tsp</option>
+    <option value="tbsp">tbsp</option>
+    <option value="fl oz">fl oz</option>
+    <option value="cup">cup</option>
+    <option value="fl pt">fl pt</option>
+    <option value="fl qt">fl qt</option>
+    <option value="gal">gal</option>
+    <option value="mL">mL</option>
+    <option value="L">L</option>
+    <option value="dL">dL</option>
+    <option value="lb">lb</option>
+    <option value="oz">oz</option>
+    <option value="mg">mg</option>
+    <option value="g">g</option>
+    <option value="kg">kg</option>
+    <option value="mm">mm</option>
+    <option value="cm">cm</option>
+    <option value="m">m</option>
+    <option value="inch">inch</option>
 
   </select>
 
