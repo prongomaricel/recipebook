@@ -1,0 +1,208 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Allura&display=swap');
+*{
+  margin: 0;
+  padding: 0;
+  user-select: none;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+/*body::after {
+    content: "";
+    background: url(/static/images/hp.jpg);
+    opacity: 58%;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+    z-index: -1; 
+    background-size: 100% 100%;
+    background-repeat: repeat-x;
+  } */
+
+nav{
+  background: #1b1b1b;
+}
+nav:after{
+  content: '';
+  clear: both;
+  display: table;
+}
+nav .logo{
+  float: left;
+  color: white;
+  font-size: 45px;
+  font-weight: 1000;
+  line-height: 70px;
+  padding-left: 60px;
+  font-family: 'Allura', cursive;
+  
+}
+nav ul{
+  float: right;
+  margin-right: 100px;
+  list-style: none;
+  position: relative;
+}
+nav ul li{
+  float: left;
+  display: inline-block;
+  background: #1b1b1b;
+  margin: 0 5px;
+}
+nav ul li a{
+  color: white;
+  line-height: 70px;
+  text-decoration: none;
+  font-size: 18px;
+  padding: 8px 15px;
+}
+nav ul li a:hover{
+  color: cyan;
+  border-radius: 5px;
+  box-shadow:  0 0 5px #33ffff,
+               0 0 10px #66ffff;
+}
+nav ul ul li a:hover{
+  box-shadow: none;
+}
+nav ul ul{
+  position: absolute;
+  top: 90px;
+  border-top: 3px solid cyan;
+  opacity: 0;
+  visibility: hidden;
+  transition: top .3s;
+}
+nav ul ul ul{
+  border-top: none;
+}
+nav ul li:hover > ul{
+  top: 70px;
+  opacity: 1;
+  visibility: visible;
+}
+nav ul ul li{
+  position: relative;
+  margin: 0px;
+  width: 180px;
+  float: none;
+  display: list-item;
+  border-bottom: 1px solid rgba(0,0,0,0.3);
+}
+nav ul ul li a{
+  line-height: 50px;
+}
+nav ul ul ul li{
+  position: relative;
+  top: -60px;
+  left: 150px;
+}
+.show,.icon,input{
+  display: none;
+}
+.fa-plus{
+  font-size: 15px;
+  margin-left: 40px;
+}
+
+
+
+  body {
+    background: url(/static/images/bg2.jpg);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: top;
+    background-attachment: fixed}
+
+ .no-arrow {
+    -moz-appearance: textfield;}
+
+
+  .no-arrow::-webkit-inner-spin-button {
+    display: none;}
+
+  .no-arrow::-webkit-outer-spin-button,
+  .no-arrow::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;}
+
+th {  
+  text-align: center;
+}
+
+
+
+table {
+	border: 3px dashed white;;
+  text-align: center;
+  border-collapse: collapse;
+  width: 85%;
+  padding-top: 2%
+
+  margin-right: 7%; margin-left: 7%
+
+}
+
+td {
+  text-align: left; 
+}
+
+.form {
+  padding-top: 5%;
+  padding-right: 6%;
+  padding-left: 6%;
+    width: 85%;
+    background-color: powderblue;
+    border-radius: 5%;
+    margin-left: 7%;
+    margin-right: 10%;
+    margin-top: 4%}
+
+
+input[type=text], input[type=number], input[type=date], input[type=button],select {
+  width: 35%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+button[type=button] {
+  width: 20%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  margin-left: 7%;
+  margin-top: 1%;
+  border: none;
+  border-radius: 90px;
+  cursor: pointer;
+}
+
+button[type=button]:hover {
+  background-color: #45a049;
+}
+
+button[type=submit] {
+  width: 20%;
+  background-color: powderblue;
+  color: white;
+  padding: 10px 20px;
+  margin-top: 1%;
+  border: none;
+  border-radius: 90px;
+  cursor: pointer;
+  margin-bottom: 2%;
+  text-align: center;
+}
+
+button[type=submit]:hover {
+  background-color: #45a049;
+}
+
+

@@ -3,8 +3,8 @@ from datetime import date
 
 class Creator(models.Model):
 	crName = models.TextField(default="")
-	choices = (('F', 'Female'), ('M', 'Male'),('O','Others'))
-	crGender = models.CharField(max_length=1 , help_text="Seklectamon" ,choices=choices, null=True)
+	gender = (('F', 'Female'), ('M', 'Male'),('O','Others'))
+	crGender = models.CharField(max_length=1 ,help_text="Creator Gender", choices=gender, default="")
 	crEAddress = models.EmailField(default="")
 	crContactNumber = models.CharField(default="", max_length=11)
 #	uImage = models.TextField(default="")
