@@ -1,0 +1,155 @@
+<html>
+<head>
+	<title>Recipe Book</title>
+
+<link rel="stylesheet" href="/static/css/style.css">
+<style>
+
+	body {
+    background: url(/static/images/bg14.jpg);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: top;
+    background-attachment: fixed}
+
+ .no-arrow {
+    -moz-appearance: textfield;}
+
+
+  .no-arrow::-webkit-inner-spin-button {
+    display: none;}
+
+  .no-arrow::-webkit-outer-spin-button,
+  .no-arrow::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;}
+
+th {  
+  text-align: center;
+}
+
+
+
+table {
+	border: 3px dashed white;;
+  text-align: center;
+  border-collapse: collapse;
+  width: 85%;
+  padding-top: 2%
+
+  margin-right: 7%; margin-left: 7%
+
+}
+
+td {
+  text-align: left; 
+}
+
+.form {
+	padding-top: 5%;
+	padding-right: 6%;
+	padding-left: 6%;
+    width: 85%;
+    background-color: powderblue;
+    border-radius: 5%;
+    margin-left: 7%;
+    margin-right: 10%;
+    margin-top: 2%}
+
+
+input[type=text], input[type=number], input[type=date], input[type=button],  input[type=file],select {
+  width: 35%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+button[type=button] {
+  width: 20%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  margin-left: 7%;
+  margin-top: 1%;
+  border: none;
+  border-radius: 90px;
+  cursor: pointer;
+}
+
+button[type=button]:hover {
+  background-color: #45a049;
+}
+
+button[type=submit] {
+  width: 20%;
+  background-color: powderblue;
+  color: white;
+  padding: 10px 20px;
+  margin-top: 1%;
+  border: none;
+  border-radius: 90px;
+  cursor: pointer;
+  margin-bottom: 2%;
+  text-align: center;
+}
+
+button[type=submit]:hover {
+  background-color: #45a049;
+}
+
+select {
+  position: absolute;
+}
+
+
+
+
+</style>
+
+</head>
+
+<body style="background-color: powderblue">
+
+ <nav>
+    <div class="logo" >-- Recipe Book --</div>
+    <label for="btn" class="icon"><span class="fa fa-bars"></span></label>
+    <input type="checkbox" id="btn">
+    <ul>
+      <li>
+        <label for="btn-1" class="show">Home<i class="fas fa-caret-down" style="padding-left: 10px;"></i></label>
+        <a href="/home" ><i class="fa fa-home" style="padding-right: 10px;"></i>Home</a></li>
+        <li><a href="/about" > About Us<i class="fa fa-question-circle" style="padding-left: 10px;"></i></a></li>
+        <li><a href="/contact">Contact</a></li></ul></nav>
+
+
+
+<!-- 		<table style="padding-left: 1%">
+			<tr style="font-size: 17px;">
+				
+				<td style="padding-left: 2%;">Email Address:</td>
+				<td style="padding-left: 0.50%;">{{CreatorId.crName|title}} is:</td>
+				<td style="padding-left: 2%;">Your Recipe Book Link:</td>
+
+			</tr>
+			<tr style="font-size: 22px;">
+				
+				<td style="padding-left: 2%;"><a href="/{{CreatorId.id}}/profile">{{CreatorId.crEAddress}}</a></td>
+				<td style="padding-left: 0.50%;">{{CreatorId.crGender}}{{model.choices}}</td>
+				<td style="padding-left: 2%;">recipebook.ph/{{CreatorId.id}}/</td>
+			</tr>
+		</table> -->
+
+
+
+
+	<form class="form" 
+	 method="POST" action="/{{CreatorId.id}}/addDish">
+
+</form>
+
+
+</body>
+</html>

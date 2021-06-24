@@ -1,0 +1,202 @@
+<html>
+<head>
+  <title>Recipe Book</title>
+  <link rel="stylesheet" href="/static/css/style.css">
+  <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+  <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/static/css/profile.css"></head>
+
+  <style>
+    button[type=button] {
+    }
+
+  button[type=button]:hover {
+    background-color: #45a049;}
+
+  input[placeholder] {
+    text-align: center}
+
+
+  button[type=submit] {
+    width: 23%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    margin-top: 1%;
+    border: none;
+    border-radius: 90px;
+    cursor: pointer;
+    margin-bottom: 2%;}
+
+
+
+  button[type=submit]:hover {
+    background-color: #45a049;}
+
+
+
+  </style>
+ 
+
+
+
+<body>
+  <nav>
+    <div class="logo" >-- Recipe Book --</div>
+    <label for="btn" class="icon"><span class="fa fa-bars"></span></label>
+    <input type="checkbox" id="btn">
+    <ul>
+      <li>
+        <label for="btn-1" class="show">Home<i class="fas fa-caret-down" style="padding-left: 10px;"></i></label>
+        <a href="/home" ><i class="fa fa-home" style="padding-right: 10px;"></i>Home</a></li>
+        <li><a href="/about" > About Us<i class="fa fa-question-circle" style="padding-left: 10px;"></i></a></li>
+        <li><a href="/contact">Contact</a></li></ul></nav>
+
+
+
+
+       <h1 style="color: #6495ED;font-size: 6vw;
+    font-family: 'Allura', cursive; text-align: center;padding-top: 7%">-- {{CreatorId.crName|title}}'s Book --</h1> 
+
+
+
+<!--    <table style="padding-left: 1%">
+      <tr style="font-size: 17px;padding-left: 5%;">
+        
+        <td style="padding-left: 2%;">Email Address:</td>
+        <td style="padding-left: 10%;">{{CreatorId.crName|title}} is:</td>
+        <td style="padding-left: 2%;">Your Recipe Book Link:</td>
+
+      </tr>
+      <tr style="color: red; font-size: 22px;padding-left: 5%;margin-left:10%">
+        
+        <td style="padding-left: 2%;">{{CreatorId.crEAddress}}</td>
+        <td style="padding-left: 10%;">{{CreatorId.crGender}}{{model.choices}}</td>
+        <td style="padding-left: 2%;">recipebook.ph/{{CreatorId.id}}/</td>
+      </tr>
+    </table> -->
+
+    <form class="form">
+      {% for dish in CreatorId.dish_set.all %} 
+
+        <h1 style="font-size: 3.0vw;
+    font-family: 'Dancing Script', cursive;text-align: center;"><u>{{dish.dNameofDish|title}}</u></h1> 
+      <p style="font-size: 1.30vw;text-align: center; padding-top: 0.50%; ">(Name of Dish)</p>
+<br><br><br>
+      <label style="font-size: 1.80vw;">Main Ingredients: </label> 
+      <label style="padding-left:3%; font-size: 1.80vw; font-family: 'Dancing Script', cursive;">{{dish.dMainIngredient}}</label>
+
+
+<br><br><hr><br>
+
+
+      <label style="font-size: 1.80vw;">Category: </label> 
+      <label style="padding-left:12%; font-size: 1.80vw; font-family: 'Dancing Script', cursive;">{{dish.dCategory}}</label>
+
+
+
+<br><br><hr><br>
+
+
+      <label style="font-size: 1.80vw;">Difficulty: </label> 
+      <label style="padding-left:13%; font-size: 1.80vw; font-family: 'Dancing Script', cursive;">{{dish.dDifficulty}}</label>
+
+
+<br><br><hr><br>
+
+
+      <label style="font-size: 1.80vw;">Servings: </label> 
+      <label style="padding-left:13%; font-size: 1.80vw; font-family: 'Dancing Script', cursive;">{{dish.dServings}}  person/s</label>
+
+
+
+<br><br><hr><br>
+      
+      <label style="font-size: 1.80vw;">Preparation Time: </label> 
+      <label style="padding-left:2%; font-size: 1.80vw; font-family: 'Dancing Script', cursive;">{{dish.dPrep}} minute/s</label>
+
+
+
+<br><br><hr><br>
+
+      <label style="font-size: 1.80vw;">Cooking Time: </label> 
+      <label style="padding-left:7%; font-size: 1.80vw; font-family: 'Dancing Script', cursive;">{{dish.dCook}} minute/s</label>
+      <br><br><hr><br>
+
+      <label style="font-size: 1.80vw;">Total Time: </label> 
+      <label style="padding-left:11%; font-size: 1.80vw; font-family: 'Dancing Script', cursive;">{{dish.dTotal}} minute/s</label>
+      <br><br><hr><br>
+
+      <p style="font-size: 1.80vw;padding-bottom: 2%;">Ingredients</p>
+      <p style="padding-left: 17%; padding-top: 1%">1: {{CreatorId.crContactNumber}}</p>
+      <p style="padding-left: 17%; padding-top: 1%">2: {{CreatorId.crContactNumber}}</p>
+      <p style="padding-left: 17%; padding-top: 1%">3: {{CreatorId.crContactNumber}}</p>
+
+
+      <br><br><hr><br>
+
+      <p style="font-size: 1.80vw;padding-bottom: 2%;">Procedures</p>
+      <p style="padding-left: 17%; padding-top: 1%">1: {{CreatorId.crContactNumber}}</p>
+      <p style="padding-left: 17%; padding-top: 1%">2: {{CreatorId.crContactNumber}}</p>
+      <p style="padding-left: 17%; padding-top: 1%">3: {{CreatorId.crContactNumber}}</p>
+
+      <br><br><hr><br>
+
+      <h1 style="font-size: 2.0vw;
+    font-family: 'Dancing Script', cursive;">{{dish.dNameofDish|title}}</h1> 
+      <p>Image here</p>
+
+      <br><br><hr><br>
+      <label style="font-size: 1.50vw;">Creator: </label>
+      <label style="font-size: 1.50vw;
+    font-family: 'Dancing Script', cursive;padding-left: 8%"><a href="/{{CreatorId.id}}/profile">{{CreatorId.crName|title}}</a></label><br>
+
+      <label style="font-size: 1.50vw;">Date Created: </label>
+      <label style="font-size: 1.50vw;
+    font-family: 'Dancing Script', cursive;padding-left: 2%">{{CreatorId.dDate|title}}</label>
+      <br><br><hr><br><br>
+
+      <a href="" style="width: 20%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    margin-left: 75%;
+    margin-top: 1%;
+    border: none;
+    border-radius: 90px;
+    cursor: pointer;">Edit</a>
+
+
+    <a href="" style="width: 20%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    margin-left: 2%;
+    margin-top: 1%;
+    border: none;
+    border-radius: 90px;
+    cursor: pointer;">Delete</a>
+      {% endfor %} <br><br><br><br>
+    </form>
+    <form class="form" style="text-align: center;">
+      <textarea style="width:100%; height: 20%;"></textarea>
+      <br><br><br><button style="width: 50%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 90px;
+    cursor: pointer;">Submit Comment</button><br><br><br>
+    </form>
+
+<br><br><br><br><br><br><br><br>
+
+
+
+</body>
+
+
+</html>
+
+

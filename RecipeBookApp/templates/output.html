@@ -296,7 +296,7 @@ button[type=submit]:hover {
   </tr>
   {% for dish in CreatorId.dish_set.all %} 
   <tr> 
-  <td>{{ dish.dNameofDish }}</td>
+  <td><a href="/{{CreatorId.id}}/Output">{{ dish.dNameofDish }}</td>
   <td>{{ dish.dDifficulty }}</td>
   <td>{{ dish.dServings }}</td>
   

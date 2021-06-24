@@ -5,7 +5,11 @@ from RecipeBookApp.models import Dish, Creator, Recipe
 
 def RecipeBook(request):
     dishes = Creator.objects.all()
-    return render(request, 'homepage.html',{'dishes' : dishes})
+    return render(request, 'homepage.html', {'dishes' : dishes})
+
+def Recipes(request):
+    dishes = Creator.objects.all()
+    return render(request, 'added.html',{'dishes' : dishes})
 
 
 def Contact(request):
@@ -28,19 +32,32 @@ def ViewList(request, cId):
 
 def NewList(request):
 #   newCreator = Creator.objects.create()
-    newCar = Creator.objects.create(crName=request.POST['fName'],crGender=request.POST['gender'],crEAddress=request.POST['fEAddress'], crContactNumber=request.POST['fContactNumber'])
+    newCar = Creator.objects.create(crName=request.POST['fName'],crGender=request.POST['gender'],crEAddress=request.POST['fEAddress'], crContactNumber=request.POST['nDate'])
 #   Dish.objects.create(CreatorId=newCreator, crName=request.POST['fName'],)
     return redirect(f'/{newCar.id}/')
 
 def ViewList2(request, cId):
     creatorId =Creator.objects.get(id=cId)
 #   dishes = Dish.objects.filter(CreatorId=creatorId)
-    return render(request, 'output.html', {'CreatorId':creatorId})
+    return render(request, 'recipe_output.html', {'CreatorId':creatorId})
 
 def AddDish(request, cId):
     creatorId = Creator.objects.get(id=cId)
-    Dish.objects.create(CreatorId=creatorId, dNameofDish=request.POST['nNameofDish'],dMainIngredient=request.POST['nMainIngredient'],dDifficulty=request.POST['nDifficulty'],dCategory=request.POST['nCategory'],dServings=request.POST['nServings'],)#rQuantity=request.POST['nQuantity'],rIngredients=request.POST['nIngredients'],rProcedures=request.POST['nProcedures'],)
-    return redirect(f'/{creatorId.id}/s')
+    Dish.objects.create(CreatorId=creatorId, dNameofDish=request.POST['nNameofDish'],dMainIngredient=request.POST['nMainIngredient'],dDifficulty=request.POST['nDifficulty'],dCategory=request.POST['nCategory'],dServings=request.POST['nServings'],dPrep=request.POST['nPrepTime'],dCook=request.POST['nCookTime'],dTotal=request.POST['nTotalTime'], dDate=request.POST['nDate'],)#rQuantity=request.POST['nQuantity'],rIngredients=request.POST['nIngredients'],rProcedures=request.POST['nProcedures'],)
+    return redirect(f'/{creatorId.id}/Recipe')
+
+
+# def Output(request, cId):
+#     creatorId =Creator.objects.get(id=cId)
+# #   dishes = Dish.objects.filter(CreatorId=creatorId)
+#     return render(request, 'recipe_output.html', {'CreatorId':creatorId})
+
+# def Dishes(request, cId):
+#     creatorId = Creator.objects.get(id=cId)
+#     Dish.objects.create(CreatorId=creatorId)#, dNameofDish=request.POST['nNameofDish'],dMainIngredient=request.POST['nMainIngredient'],dDifficulty=request.POST['nDifficulty'],dCategory=request.POST['nCategory'],dServings=request.POST['nServings'],)#rQuantity=request.POST['nQuantity'],rIngredients=request.POST['nIngredients'],rProcedures=request.POST['nProcedures'],)
+#     return redirect(f'/{creatorId.id}/Dishes')
+
+
 
 
 

@@ -10,14 +10,21 @@ urlpatterns = [
     url(r'^contact$', views.Contact, name='Contact'),
     url(r'^about$', views.About, name='About'),
     url(r'^home$', views.RecipeBook, name='RecipeBook'),
+    url(r'^recipes$', views.Recipes, name='Recipes'),
 
 
+    
+    url(r'^(\d+)/Recipe$', views.ViewList2, name='ViewList2'),
     url(r'^(\d+)/addDish$', views.AddDish, name='addDish'),
 
 
+    # url(r'^(\d+)/Dishes$', views.Dishes, name='Dishes'),
+    # url(r'^(\d+)/Output$', views.Output, name='Output'),
 
 
-    url(r'^(\d+)/s$', views.ViewList2, name='ViewList2'),
+    # url(r'^(\d+)/Dishes$', views.Dishes, name='Dishes'),
+    # url(r'^(\d+)/Output$', views.Output, name='Output'),
+
 
     url(r'^(\d+)/profile$', views.Profile, name='Profile'),
 

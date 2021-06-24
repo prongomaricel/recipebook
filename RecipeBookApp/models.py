@@ -20,6 +20,9 @@ class Dish(models.Model):
 	dDifficulty = models.TextField(default="")
 	dCategory = models.TextField(default="")
 	dServings = models.TextField(default="")
+	dPrep = models.TextField(default="")
+	dCook = models.TextField(default="")
+	dTotal = models.TextField(default="")
 	class meta:
 		db_table = "dish"
 
