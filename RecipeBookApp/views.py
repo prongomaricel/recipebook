@@ -47,6 +47,29 @@ def AddDish(request, cId):
     return redirect(f'/{creatorId.id}/Recipe')
 
 
+def UpdateRecipe(request, eId):
+    CreatorId = Dish.objects.get(id=eId)
+    CreatorId.dNameofDish = request.POST['nNameofDish']
+    CreatorId.dMainIngredient = request.POST['nMainIngredient']
+    CreatorId.dDifficulty = request.POST['nDifficulty']
+    CreatorId.dCategory = request.POST['nCategory']
+    CreatorId.dServings = request.POST['nServings']
+    CreatorId.dPrep = request.POST['nPrepTime']
+    CreatorId.dCook = request.POST['nCookTime']
+    CreatorId.dTotal = request.POST['nTotalTime']
+    CreatorId.save()
+    return redirect('/')
+
+def DeleteRecipe(request, eId):
+    CreatorId = Dish.objects.get(id=eId)
+    CreatorId.delete()
+    return redirect('/')
+
+def EditRecipe(request, eId):
+    creatorId = Dish.objects.get(id=eId)
+    context = {'CreatorId' : creatorId}
+    return render (request, 'recipe_output.html', context)
+
 # def Output(request, cId):
 #     creatorId =Creator.objects.get(id=cId)
 # #   dishes = Dish.objects.filter(CreatorId=creatorId)
