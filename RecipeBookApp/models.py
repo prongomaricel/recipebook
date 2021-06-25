@@ -5,7 +5,7 @@ class Creator(models.Model):
 	crName = models.TextField(default="")
 	gender = (('F', 'Female'), ('M', 'Male'),('O','Others'))
 	crGender = models.CharField(max_length=1 ,help_text="Creator Gender", choices=gender, default="")
-	crEAddress = models.EmailField(default="")
+	crEAddress = models.EmailField(default="", max_length=30)
 	crContactNumber = models.CharField(default="", max_length=11)
 #	uImage = models.TextField(default="")
 	class meta:

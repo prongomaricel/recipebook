@@ -32,7 +32,7 @@ def ViewList(request, cId):
 
 def NewList(request):
 #   newCreator = Creator.objects.create()
-    newCar = Creator.objects.create(crName=request.POST['fName'],crGender=request.POST['gender'],crEAddress=request.POST['fEAddress'], crContactNumber=request.POST['nDate'])
+    newCar = Creator.objects.create(crName=request.POST['fName'],crGender=request.POST['gender'],crEAddress=request.POST['fEAddress'], crContactNumber=request.POST['fContactNumber'])
 #   Dish.objects.create(CreatorId=newCreator, crName=request.POST['fName'],)
     return redirect(f'/{newCar.id}/')
 
