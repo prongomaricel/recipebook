@@ -29,9 +29,5 @@ urlpatterns = [
     url(r'^(\d+)/profile$', views.Profile, name='Profile'),
 
 
-
-    url(r'^(\d+)/updatebook$', views.UpdateRecipe, name='UpdateRecipe'),
-
-
     url('admin/', admin.site.urls),
 ]
