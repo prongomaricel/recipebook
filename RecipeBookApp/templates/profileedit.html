@@ -1,137 +1,196 @@
-{% extends 'base.html' %}
-{%load static%}
-{% block content %}
-<!-- <html>
-    <head>
-        <title>Project Borrow</title>
-        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400&display=swap" rel="stylesheet">
-        <link rel="stylesheet" type="text/css" href="/static/css/main.css">
-    </head>
-    <body>-->
-
-      <div class="navbar">
-
-                <div class="logoname"> 
-                    <a href=""></a><img src='/static/images/COLORED.png' alt="" width="100" height="100" id="logo">
-                    <a href="{% url 'logpage' %}" class="home">
-                    <pre id="cgcf"> Project Pahiram
-<span id="rll"> read, love and learn</span> 
-        </pre> 
-                    </a>     
-                </div>
-
-               <!--  <div class="navoption">
-                <a href="/mylist/{{mId.id}}/donatepage/" class="option">Donate</a>
-                <a href="/mylist/{{mId.id}}/" class="option">Borrow</a>
-                <a href="/mylist/{{mId.id}}/bookingpage" class="option">Status</a>
-                <a href="{% url 'booklistpage' %}" class="option">List</a>
-                <a href="" class="option"></a>
-                </div> -->
-            </div>
-
-                <!-- End of Nav Bar -->
-
-                <!-- Title -->
-        
-     <!--    <div class="TAO" id="TAO">
-            <div class="borrow" id="borrow">
-                 <h1 class="title">PROJECT PAHIRAM</h1>
-                    <p class="sub">Borrower Info</p>
-            <table>
-                <tr>
-                 <td>Your Link:</td>
-                    <td>Reader:</td>
-                    <td>Number:</td>
-                    <td>Location:</td>
-                    <td>School:</td>
-                </tr>
-                <tr>
-                    
-                    <td>pahiram.ph/mylist/{{mId.id}}</td>
-                    <td>{{mId.Reader.upper}}</td>
-                    <td>{{mId.Number.upper}}</td>
-                    <td>{{mId.Location.upper}}</td>
-                    <td>{{mId.School.upper}}</td>
-                </tr>
-            </table>
-        </div>
-    </div>
-        <div class="click">
-        <p class="sub">Choose 1 Transaction</p> -->
-
-        <!-- <button id="pahiram" value="borrow">Borrow</button> -->
-
-     <!--    <button id="donate" value="donate">Donate</button>
-        <button id="penalty" value="penalty">Status</button>
-        <a href=""><button name="rules" id="reg" value="rules">Rules</button></a>
-        </div>
- -->
-        
-<div class="borrowing">
-                
-                <p id="log">LISTA a BOOK</p>
-
-        <div class="Book-Info">
-
-            <form method="POST" id="fields" action="bookchange/{{item.id}}"> 
-
-                <input type="text" name="CodeEntry" id="CodeEntry" placeholder="ISBN" required value="{{item.binfo}}"> 
-            
-                <input type="text" name="Category" id="Category" placeholder="Category" required="" value="{{item.name}}"> <br>
+<html>
+<head>
+  <title>Recipe Book</title>
+  <link rel="stylesheet" href="/static/css/style.css">
+  <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+  <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"></head>
  
-                <input type="text" name="AuthorEntry" id="AuthorEntry" required placeholder="Book Author" value="{{item.author}}">
+<style >
 
-                <input type="text" name="BookEntry" id="BookEntry" placeholder="Book Title" required value="{{item.title}}">
-                <br>
+  body {
+    background: url(/static/images/bg9.webp);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: top;
+    background-attachment: fixed}
 
-            
-                <input type="submit" name="btn-list" id="btnSave" value="Confirm" class="button">
+  input[type=radio], select {
+    padding: 12px 20px;
+    margin-left: 1%;
+    display: inline-block;
+    border-radius: 4px;
+    box-sizing: border-box;}
 
-              
-                
-                {% csrf_token %}
+  button[type=button] {
+    width: 20%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    margin-left: 12%;
+    margin-top: 1%;
+    border: none;
+    border-radius: 90px;
+    cursor: pointer;}
+
+  button[type=button]:hover {
+    background-color: #45a049;}
+
+  input[placeholder] {
+    text-align: center}
 
 
+  button[type=submit] {
+    width: 45%;
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    margin-top: 1%;
+    border: none;
+    border-radius: 90px;
+    cursor: pointer;
+    margin-bottom: 2%;}
 
-            </form>
-              
-        </div>
-
-        <!-- <div class="notice">
-                <p>Kindly read and strictly follow the rules and regulations, <br>
-                fail to do so will result to deletion of records and banning of the user.</p>
-                    
-        </div>
- -->
-         <!-- <div class="logstat">
-            <p id="log">Book List</p>
-       
-            <table id="booklist" name='booklist'>
-                <tr>
-                    <th>ISBN</th>
-                    <th>Book Title</th>
-                    <th>Book Author</th>
-                    <th>Book Category</th> 
-                </tr>
-                 {% for item in Item %}
-                <tr>
-                    <td style="text-align: left;">{{forloop.counter}}. {{item.binfo}}</td>
-                    <td>{{item.title}}</td>
-                    <td>{{item.author}}</td>
-                    <td>{{item.name}}</td>
-                    <td style="width: 20px;"><a href="" style="color: black;">Update</a></td>
-                    <td style="width: 20px;"><a href="" style="color: black;">Delete</a></td>
-                
-                </tr>
-                {% endfor%}
-            </table> -->
-
-         </div>
-
-</div>
+ 
 
 
 
-<!--     </body>
-    </html> -->
-{% endblock %}
+
+  button[type=submit]:hover {
+    background-color: #45a049;}
+
+
+  .form {
+    width: 40%;
+    float: right;
+    background-color: ivory;
+    border-radius: 5%;
+    display: none;
+    margin-top: -39%;
+    margin-right:10%;
+    transition: .5s;}
+
+</style>
+
+
+<body>
+  <nav>
+    <div class="logo" >-- Recipe Book --</div>
+    <label for="btn" class="icon"><span class="fa fa-bars"></span></label>
+    <input type="checkbox" id="btn">
+    <ul>
+      <li>
+        <label for="btn-1" class="show">Home<i class="fas fa-caret-down" style="padding-left: 10px;"></i></label>
+        <a href="home" ><i class="fa fa-home" style="padding-right: 10px;"></i>Home</a></li>
+        <li><a href="about" > About Us<i class="fa fa-question-circle" style="padding-left: 10px;"></i></a></li>
+        <li><a href="recipes">Recipes</a></li></ul>
+        </nav>
+
+
+
+      <h4 style="margin-top: 34%; margin-left: 12%;font-size: 1.50vw">It is even better than <br>an expensive cookery book</h4>
+      <p style="margin-left:12%;font-size: 1.20vw">Let us Express your Signature Dish</p>
+
+      <!-- <button type="button" id="creatorbutton">+ Create</button> -->
+      <form style="text-align: center; padding-top: 1.50%; width: 40%;
+    float: right;
+    background-color: ivory;
+    border-radius: 5%;
+    margin-top: -39%;
+    margin-right:10%" method="POST" action="/{{CreatorId.id}}/edit/updatebook">
+
+        <label>Creator Name:</label><br>
+
+        <input
+        style="width: 65%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;"
+        type="text"
+        id="fName"
+        name="fName"
+        placeholder="Please Enter Your Name"
+        value="{{CreatorId.crName}}"
+        required><br><br>
+
+        <label id="gender" value="{{CreatorId.crGender}}" required>Gender:</label><br>
+
+
+        <input 
+        type="radio" 
+        id="gender" 
+        name="gender" 
+        value="Female" >
+
+        <label for="Female">Female</label>
+
+        <input 
+        type="radio" 
+        id="gender" 
+        name="gender" 
+        value="Male">
+
+        <label for="Male">Male</label>
+
+
+        <input 
+        type="radio" 
+        id="gender" 
+        name="gender" 
+        value="other" required>
+
+        <label for="other">Other</label><br><br>
+
+        <label>Email Address:</label><br>
+
+        <input 
+        style="width: 65%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;"
+        type="text"
+        id="fEAddress"
+        name="fEAddress"
+        placeholder="Please Enter Email-Address"
+        value="{{CreatorId.crEAddress}}" 
+        required><br><br>
+
+
+        <label>Contact Number:</label><br>
+
+
+        <input
+        style="width: 65%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;"
+        type="text"
+        id="fContactNumber"
+        name="fContactNumber"
+        placeholder="0912-345-6789"
+        value="{{CreatorId.crContactNumber}}" required><br>
+
+        <button style="margin-top: 5%" type="submit" id="SaveChanges" value="SaveChanges" name="SaveChanges">Save Changes</button><br><br>{% csrf_token %}</form>
+
+
+
+</body>
+
+<script>
+  $(document).ready(function() {
+    $("#creatorbutton").click(function() {
+    $("#creatorform").toggle();});});
+ </script>
+
+</html>
+
+

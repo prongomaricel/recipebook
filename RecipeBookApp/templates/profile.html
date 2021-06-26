@@ -31,11 +31,7 @@
     <label for="btn" class="icon"><span class="fa fa-bars"></span></label>
     <input type="checkbox" id="btn">
     <ul>
-      <li>
-        <label for="btn-1" class="show">Home<i class="fas fa-caret-down" style="padding-left: 10px;"></i></label>
-        <a href="/home" ><i class="fa fa-home" style="padding-right: 10px;"></i>Home</a></li>
-        <li><a href="/about" > About Us<i class="fa fa-question-circle" style="padding-left: 10px;"></i></a></li>
-        <li><a href="/contact">Contact</a></li></ul></nav>
+      <li><a href="/{{CreatorId.id}}/">+ Add New Recipe</a></ul></nav>
 
 
 
@@ -43,7 +39,7 @@
     font-family: 'Allura', cursive; text-align: center;padding-top: 7%">-- {{CreatorId.crName|title}}'s Book --</h1> 
 
 
-    <form class="form" style="text-align: center">
+    <form class="form" style="text-align: center" action="/{{CreatorId.id}}/edit">
 
         <h1 style="color: #6495ED;font-size: 3.0vw;
     font-family: 'Dancing Script', cursive;">{{CreatorId.crName|title}}</h1> 
@@ -75,7 +71,17 @@
         Contact Number
       </label><br><br><br><br>
 
-      <a href="/{{CreatorId.id}}/updatebook">Update</a>
+      <button style="width: 23%;
+    background-color: #6495ED;
+    color: white;
+    padding: 10px 20px;
+    margin-top: 1%;
+    border: none;
+    border-radius: 90px;
+    cursor: pointer;
+    margin-bottom: 2%;">Update Profile</button>
+    <br><br><br>
+
 
 
       

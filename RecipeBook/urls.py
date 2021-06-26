@@ -30,7 +30,9 @@ urlpatterns = [
 
 
 
-    url(r'^(\d+)/updatebook$', views.UpdateRecipe, name='UpdateRecipe'),
+    url(r'^(\d+)/edit/updatebook$', views.UpdateRecipe, name='UpdateRecipe'),
+    url(r'^(\d+)/edit$', views.EditRecipe, name='EditRecipe'),
+    url(r'^(\d+)/delete$', views.DeleteRecipe, name='DeleteRecipe'),
 
 
     url('admin/', admin.site.urls),

@@ -133,11 +133,7 @@ select {
     <label for="btn" class="icon"><span class="fa fa-bars"></span></label>
     <input type="checkbox" id="btn">
     <ul>
-      <li>
-        <label for="btn-1" class="show">Home<i class="fas fa-caret-down" style="padding-left: 10px;"></i></label>
-        <a href="/home" ><i class="fa fa-home" style="padding-right: 10px;"></i>Home</a></li>
-        <li><a href="/about" > About Us<i class="fa fa-question-circle" style="padding-left: 10px;"></i></a></li>
-        <li><a href="/contact">Contact</a></li></ul></nav>
+        <li><a href="/{{CreatorId.id}}/profile">Creator's Profile</a></li></ul></nav>
 
 	<h1 style="padding-top: 2%;
 		padding-bottom: 2%; 
@@ -154,7 +150,7 @@ select {
 			</tr>
 			<tr style="font-size: 22px;">
 				
-				<td style="padding-left: 2%;"><a href="/{{CreatorId.id}}/profile">{{CreatorId.crEAddress}}</a></td>
+				<td style="padding-left: 2%;">{{CreatorId.crEAddress}}</a></td>
 				<td style="padding-left: 0.50%;">{{CreatorId.crGender}}{{model.choices}}</td>
 				<td style="padding-left: 2%;">recipebook.ph/{{CreatorId.id}}/</td>
 			</tr>

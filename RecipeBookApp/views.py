@@ -47,28 +47,24 @@ def AddDish(request, cId):
     return redirect(f'/{creatorId.id}/Recipe')
 
 
-def UpdateRecipe(request, eId):
-    CreatorId = Dish.objects.get(id=eId)
-    CreatorId.dNameofDish = request.POST['nNameofDish']
-    CreatorId.dMainIngredient = request.POST['nMainIngredient']
-    CreatorId.dDifficulty = request.POST['nDifficulty']
-    CreatorId.dCategory = request.POST['nCategory']
-    CreatorId.dServings = request.POST['nServings']
-    CreatorId.dPrep = request.POST['nPrepTime']
-    CreatorId.dCook = request.POST['nCookTime']
-    CreatorId.dTotal = request.POST['nTotalTime']
-    CreatorId.save()
+def UpdateRecipe(request, id):
+    creatorId = Creator.objects.get(id=id)
+    creatorId.crName = request.POST['fName']
+    creatorId.crGender = request.POST['gender']
+    creatorId.crEAddress = request.POST['fEAddress']
+    creatorId.crContactNumber = request.POST['fContactNumber']
+    creatorId.save()
+    return render(request, 'profile.html', {'CreatorId':creatorId})
+
+def DeleteRecipe(request, id):
+    creator = Creator.objects.get(id=id)
+    creator.delete()
     return redirect('/')
 
-def DeleteRecipe(request, eId):
-    CreatorId = Dish.objects.get(id=eId)
-    CreatorId.delete()
-    return redirect('/')
-
-def EditRecipe(request, eId):
-    creatorId = Dish.objects.get(id=eId)
+def EditRecipe(request, id):
+    creatorId = Creator.objects.get(id=id)
     context = {'CreatorId' : creatorId}
-    return render (request, 'recipe_output.html', context)
+    return render (request, 'profileedit.html', context)
 
 # def Output(request, cId):
 #     creatorId =Creator.objects.get(id=cId)
